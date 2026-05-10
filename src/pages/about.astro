@@ -1,0 +1,109 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { brand } from "../data/brand.ts";
+---
+
+<BaseLayout
+  title={`About | ${brand.siteName}`}
+  description="About AeroSure Advisory — practical aviation safety and assurance advisory for ATM, ANS, and operational change."
+>
+  <main id="main" class="container page-shell">
+    <section class="page-hero reveal" data-reveal>
+      <p class="page-kicker">About {brand.siteName}</p>
+      <h1 class="section-title">Aviation safety assurance built for operational reality</h1>
+      <p class="section-lead">
+        {brand.siteName} supports aviation organisations with practical safety and assurance expertise grounded in operational reality. We help teams
+        navigate complexity, strengthen decision-making, and build confidence in systems, processes, and outcomes.
+      </p>
+    </section>
+
+    <section class="section" style="padding:0 0 2.5rem">
+      <div class="grid-3">
+        <article class="card reveal" data-reveal>
+          <h3>Technical credibility</h3>
+          <p>Structured methods, traceable evidence, and proportionate rigour suited to high-regulation environments.</p>
+        </article>
+        <article class="card reveal reveal-delay-1" data-reveal>
+          <h3>Operational fit</h3>
+          <p>Engagements respect delivery pace, governance rhythms, and the way safety and engineering teams collaborate.</p>
+        </article>
+        <article class="card reveal reveal-delay-2" data-reveal>
+          <h3>Clear communication</h3>
+          <p>Assurance narratives and artefacts that boards, regulators, and programme leads can follow without ambiguity.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="page-photo-stack">
+      <article class="page-photo-band">
+        <div class="page-photo-media" style="--band-img:url('https://images.unsplash.com/photo-1540339832862-474599807836?auto=format&fit=crop&w=2200&q=85')"></div>
+        <div class="page-photo-content">
+          <div class="page-photo-card reveal" data-reveal>
+            <h3>ATC and operational context first</h3>
+            <p>
+              Assurance is most effective when grounded in live operational realities. AeroSure engagements are built around how ATC teams,
+              supervisors, and programme leads actually work.
+            </p>
+          </div>
+        </div>
+      </article>
+      <article class="page-photo-band">
+        <div class="page-photo-media" style="--band-img:url('https://images.unsplash.com/photo-1517479149777-5f3b1511d5ad?auto=format&fit=crop&w=2200&q=85')"></div>
+        <div class="page-photo-content">
+          <div class="page-photo-card reveal reveal-delay-1" data-reveal>
+            <h3>Independent, practical, and proportionate</h3>
+            <p>
+              The goal is not excess paperwork. It is clear, defensible assurance that supports safer implementation and stronger decision confidence.
+            </p>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="section section-muted" style="margin:0 -1.25rem;padding:3.25rem 1.25rem">
+      <div class="container split">
+        <div>
+          <p class="page-kicker reveal" data-reveal>How we work</p>
+          <h2 class="section-title reveal reveal-delay-1" data-reveal>A focused model built for confidence</h2>
+          <p class="section-lead reveal" data-reveal>
+            Every engagement is scoped to reduce ambiguity quickly and provide practical, evidence-backed decisions.
+          </p>
+          <ul class="checklist reveal reveal-delay-1" data-reveal>
+            <li><strong>Define the change context</strong> and applicable obligations.</li>
+            <li><strong>Assess hazards and controls</strong> with proportional rigor.</li>
+            <li><strong>Build assurance artefacts</strong> for internal and external review.</li>
+            <li><strong>Support implementation</strong> with practical follow-through.</li>
+          </ul>
+        </div>
+        <article class="card reveal reveal-delay-2" data-reveal>
+          <h3 style="margin-top:0">Who we support</h3>
+          <p class="section-lead" style="font-size:1rem;margin-bottom:1rem">
+            ANSP programme teams, airports, regulators, and delivery partners managing safety-critical operational change.
+          </p>
+          <p class="section-lead" style="font-size:1rem;margin:0">
+            AeroSure integrates with existing governance and engineering teams to keep assurance practical and delivery-aware.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" style="padding:3rem 0 0">
+      <p class="page-kicker reveal" data-reveal>Why clients engage us</p>
+      <h2 class="section-title reveal reveal-delay-1" data-reveal>Clear assurance, faster decision quality</h2>
+      <div class="grid-3">
+        <article class="card reveal" data-reveal>
+          <h3>Better risk visibility</h3>
+          <p>Stakeholders can clearly understand residual risk and rationale behind key control decisions.</p>
+        </article>
+        <article class="card reveal reveal-delay-1" data-reveal>
+          <h3>Stronger regulatory confidence</h3>
+          <p>Outputs are structured so reviews are efficient, traceable, and easier to defend.</p>
+        </article>
+        <article class="card reveal reveal-delay-2" data-reveal>
+          <h3>Practical implementation support</h3>
+          <p>Assurance work is integrated with delivery timelines, not isolated from operational realities.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

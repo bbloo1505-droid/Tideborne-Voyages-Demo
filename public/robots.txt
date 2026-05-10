@@ -1,0 +1,4 @@
+﻿User-agent: *
+Allow: /
+
+Sitemap: https://aerosureadvisory.example.com/sitemap.xml

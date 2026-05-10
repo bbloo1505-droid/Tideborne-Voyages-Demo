@@ -1,0 +1,95 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { brand } from "../data/brand.ts";
+---
+
+<BaseLayout
+  title={`Projects | ${brand.siteName}`}
+  description="Representative aviation safety and ATM assurance outcomes supported by AeroSure Advisory."
+>
+  <main id="main" class="container page-shell">
+    <section class="page-hero reveal" data-reveal>
+      <p class="page-kicker">Projects</p>
+      <h1 class="section-title">Representative outcomes from safety-critical engagements</h1>
+      <p class="section-lead">
+        Projects are delivered under confidentiality, but these examples illustrate the type of advisory and assurance support AeroSure provides.
+      </p>
+    </section>
+
+    <section class="section" style="padding:0 0 2.5rem">
+      <div class="grid-3">
+        <article class="card reveal" data-reveal>
+          <h3>ATM upgrade assurance</h3>
+          <p>Safety case support and implementation evidence for controlled operational release.</p>
+        </article>
+        <article class="card reveal reveal-delay-1" data-reveal>
+          <h3>Assurance maturity uplift</h3>
+          <p>Roadmap and coaching to improve decision quality, evidence traceability, and governance rhythm.</p>
+        </article>
+        <article class="card reveal reveal-delay-2" data-reveal>
+          <h3>Independent challenge review</h3>
+          <p>Objective board-level assurance ahead of major safety-critical programme milestones.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="page-photo-stack">
+      <article class="page-photo-band">
+        <div class="page-photo-media" style="--band-img:url('https://images.unsplash.com/photo-1544016768-982d1554f0b9?auto=format&fit=crop&w=2200&q=85')"></div>
+        <div class="page-photo-content">
+          <div class="page-photo-card reveal" data-reveal>
+            <h3>Complex programmes, structured assurance</h3>
+            <p>
+              Support is shaped around key decision points so stakeholders can see clear evidence of risk management maturity before operational release.
+            </p>
+          </div>
+        </div>
+      </article>
+      <article class="page-photo-band">
+        <div class="page-photo-media" style="--band-img:url('https://images.unsplash.com/photo-1474302770737-173ee21bab63?auto=format&fit=crop&w=2200&q=85')"></div>
+        <div class="page-photo-content">
+          <div class="page-photo-card reveal reveal-delay-1" data-reveal>
+            <h3>From review insight to implementation action</h3>
+            <p>
+              Findings are translated into practical actions and ownership models, helping teams move from assessment to execution with less ambiguity.
+            </p>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="section section-muted" style="margin:0 -1.25rem;padding:3.25rem 1.25rem">
+      <div class="container split">
+        <div>
+          <p class="page-kicker reveal" data-reveal>Delivery outcomes</p>
+          <h2 class="section-title reveal reveal-delay-1" data-reveal>What clients typically gain</h2>
+          <ul class="checklist reveal reveal-delay-1" data-reveal>
+            <li><strong>Clearer risk ownership</strong> across programme interfaces.</li>
+            <li><strong>Higher-quality evidence packs</strong> for governance and oversight review.</li>
+            <li><strong>Stronger implementation confidence</strong> before operational release.</li>
+            <li><strong>Faster assurance decisions</strong> with less rework and ambiguity.</li>
+          </ul>
+        </div>
+        <article class="card reveal reveal-delay-2" data-reveal>
+          <h3 style="margin-top:0">Engagement format</h3>
+          <p class="section-lead" style="font-size:1rem;margin-bottom:1rem">
+            Typical projects run through focused cycles: discovery, risk and control assessment, assurance artefact development, then implementation support.
+          </p>
+          <p class="section-lead" style="font-size:1rem;margin:0">
+            This keeps assurance aligned with delivery pace while maintaining confidence for regulators and internal stakeholders.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" style="padding:3rem 0 0">
+      <div class="card reveal" data-reveal>
+        <h3 style="margin-top:0">Have a live project requiring safety assurance input?</h3>
+        <p class="section-lead" style="margin:0 0 1rem">
+          AeroSure can support single workstreams or whole-programme assurance coordination.
+        </p>
+        <a class="btn btn-primary" href="/contact">Discuss your project</a>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

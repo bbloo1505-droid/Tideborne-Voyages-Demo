@@ -1,0 +1,66 @@
+---
+import { partners } from "../data/partners.ts";
+import { brand } from "../data/brand.ts";
+---
+
+<footer class="site-footer">
+  {
+    partners.length > 0 && (
+      <div class="footer-members">
+        <p>Proudly associated with</p>
+        <div class="partners-list">
+          {partners.map((p) => (
+            <a href={p.href ?? "#"} target={p.href ? "_blank" : undefined} rel={p.href ? "noopener noreferrer" : undefined}>
+              <img src={p.src} alt={p.alt} width="120" height="32" loading="lazy" />
+            </a>
+          ))}
+        </div>
+      </div>
+    )
+  }
+  <div class="footer-grid">
+    <div>
+      <img
+        class="footer-logo"
+        src={brand.logos.white}
+        alt=""
+        width="280"
+        height="52"
+      />
+      <p style="color:#94a3b8;margin:0 0 1rem;max-width:22rem">
+        Advisory support for operators, airports, ANSPs, and aviation stakeholders seeking practical safety and assurance expertise.
+      </p>
+      <a class="footer-cta-ghost" href="/contact">Connect with us <span aria-hidden="true">→</span></a>
+    </div>
+    <div>
+      <ul class="footer-nav">
+        <li><a href="/about">About</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/projects">Projects</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/privacy">Privacy</a></li>
+      </ul>
+    </div>
+    <div class="footer-address">
+      <p><strong style="color:#fff">Australia</strong><br />Serving Australian &amp; regional aviation programmes</p>
+    </div>
+    <div>
+      <p style="color:#fff;font-weight:600;margin:0 0 0.5rem">Email</p>
+      <p class="footer-address" style="margin:0">
+        <a href={`mailto:${brand.contactEmail}`}>{brand.contactEmail}</a>
+      </p>
+      <p style="margin-top:1rem">
+        <a
+          class="footer-social"
+          href="https://www.linkedin.com"
+          rel="noopener noreferrer"
+          target="_blank"
+          aria-label={`Visit ${brand.siteName} on LinkedIn`}
+        >
+          LinkedIn
+        </a>
+      </p>
+    </div>
+  </div>
+  <div class="footer-bottom">© <span id="year"></span> {brand.legalName}. All rights reserved.</div>
+</footer>

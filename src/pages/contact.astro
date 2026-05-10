@@ -1,0 +1,101 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { brand } from "../data/brand.ts";
+---
+
+<BaseLayout
+  title={`Contact | ${brand.siteName}`}
+  description="Contact AeroSure Advisory for aviation safety, ATM assurance, and independent advisory support."
+>
+  <main id="main" class="container page-shell">
+    <section class="page-hero reveal" data-reveal>
+      <p class="page-kicker">Contact</p>
+      <h1 class="section-title">Start a focused conversation on your safety challenge</h1>
+      <p class="section-lead">
+        Operators, airports, ANSPs, and aviation stakeholders are welcome to reach out for advisory support. Share your context and objectives, and we
+        will propose a practical next step.
+      </p>
+    </section>
+
+    <section class="section" style="padding:0 0 2rem">
+      <div class="split">
+        <div class="reveal" data-reveal>
+          <h2 class="section-title" style="font-size:1.6rem">Get in touch</h2>
+          <p class="section-lead">
+            <strong>Email</strong><br />
+            <a href={`mailto:${brand.contactEmail}`}>{brand.contactEmail}</a>
+          </p>
+          <p class="section-lead">
+            <strong>Location</strong><br />
+            Australia
+          </p>
+        </div>
+        <form class="contact-form reveal reveal-delay-1" data-reveal action="#" method="post">
+          <label>Name<input type="text" name="name" required autocomplete="name" /></label>
+          <label>Work email<input type="email" name="email" required autocomplete="email" /></label>
+          <label>Organisation<input type="text" name="org" autocomplete="organization" /></label>
+          <label>Message<textarea name="message" required placeholder="How can we help?"></textarea></label>
+          <button class="btn btn-primary" type="submit">Send message</button>
+          <p class="form-note">Demo form for now — Supabase integration can be added next.</p>
+        </form>
+      </div>
+    </section>
+
+    <section class="page-photo-stack">
+      <article class="page-photo-band">
+        <div class="page-photo-media" style="--band-img:url('https://images.unsplash.com/photo-1529074963764-98f45c47344b?auto=format&fit=crop&w=2200&q=85')"></div>
+        <div class="page-photo-content">
+          <div class="page-photo-card reveal" data-reveal>
+            <h3>Talk through your challenge with context</h3>
+            <p>
+              The best first discussion is specific: what is changing, where risk concerns sit, and what confidence level is required before deployment.
+            </p>
+          </div>
+        </div>
+      </article>
+      <article class="page-photo-band">
+        <div class="page-photo-media" style="--band-img:url('https://images.unsplash.com/photo-1517479149777-5f3b1511d5ad?auto=format&fit=crop&w=2200&q=85')"></div>
+        <div class="page-photo-content">
+          <div class="page-photo-card reveal reveal-delay-1" data-reveal>
+            <h3>Fast, focused engagement options</h3>
+            <p>
+              If helpful, AeroSure can begin with a short diagnostic sprint to identify priority assurance actions and immediate next steps.
+            </p>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="section section-muted" style="margin:0 -1.25rem;padding:3.25rem 1.25rem">
+      <div class="container">
+        <p class="page-kicker reveal" data-reveal>How we can help</p>
+        <h2 class="section-title reveal reveal-delay-1" data-reveal>Common enquiry themes</h2>
+        <div class="grid-3">
+          <article class="card reveal" data-reveal>
+            <h3>Live programme risk issues</h3>
+            <p>Support to clarify hazards, controls, and evidence requirements for ongoing delivery.</p>
+          </article>
+          <article class="card reveal reveal-delay-1" data-reveal>
+            <h3>Regulatory readiness</h3>
+            <p>Prepare assurance artefacts and narratives ahead of regulator or governance reviews.</p>
+          </article>
+          <article class="card reveal reveal-delay-2" data-reveal>
+            <h3>Targeted capability uplift</h3>
+            <p>Advisory sessions for teams improving practical assurance quality and decision traceability.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding:3rem 0 0">
+      <div class="card reveal" data-reveal>
+        <h3 style="margin-top:0">What happens after you submit?</h3>
+        <ul class="checklist" style="margin:0">
+          <li><strong>Initial response</strong> within two business days.</li>
+          <li><strong>Short discovery call</strong> to confirm context and objectives.</li>
+          <li><strong>Proposed next step</strong> with a practical engagement option.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

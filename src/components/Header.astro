@@ -1,0 +1,48 @@
+---
+import { brand } from "../data/brand.ts";
+
+const links = [
+  { href: "/about", label: "About" },
+  { href: "/services", label: "Services" },
+  { href: "/projects", label: "Projects" },
+];
+---
+
+<header class="site-header" id="top">
+  <div class="header-inner">
+    <a class="logo" href="/" aria-label={`${brand.siteName} home`}>
+      <img
+        class="logo-img"
+        src={brand.logos.white}
+        alt={`${brand.siteName} — ${brand.tagline}`}
+        width="280"
+        height="52"
+      />
+    </a>
+    <button
+      class="nav-toggle"
+      type="button"
+      id="nav-toggle"
+      aria-expanded="false"
+      aria-controls="site-nav"
+      aria-label="Open menu"
+    >
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+    </button>
+    <nav class="site-nav" id="site-nav" aria-label="Primary">
+      <ul class="nav-list">
+        {
+          links.map((l) => (
+            <li>
+              <a href={l.href}>{l.label}</a>
+            </li>
+          ))
+        }
+        <li>
+          <a class="nav-cta" href="/contact">Connect with us <span aria-hidden="true">→</span></a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
