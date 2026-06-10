@@ -10,6 +10,8 @@ interface Props {
   lead?: string;
   short?: boolean;
   waveColor?: "cream" | "cream-2" | "navy" | "navy-deep";
+  /** CSS background-position for the photo's focal point, e.g. "center 65%". */
+  position?: string;
 }
 
 const colors: Record<string, string> = {
@@ -19,11 +21,23 @@ const colors: Record<string, string> = {
   "navy-deep": "#031723",
 };
 
-const { image, eyebrow, lead, short = false, waveColor = "cream" } = Astro.props;
+const {
+  image,
+  eyebrow,
+  lead,
+  short = false,
+  waveColor = "cream",
+  position = "center",
+} = Astro.props;
 ---
 
 <section class:list={["hero", { "hero-short": short }]}>
-  <div class="hero-bg" style={`background-image:url('${image}')`} role="img" aria-hidden="true"></div>
+  <div
+    class="hero-bg"
+    style={`background-image:url('${image}');background-position:${position}`}
+    aria-hidden="true"
+  >
+  </div>
   <div class="hero-overlay" aria-hidden="true"></div>
   <div class="hero-content">
     {eyebrow && <p class="eyebrow tide-fade-up">{eyebrow}</p>}

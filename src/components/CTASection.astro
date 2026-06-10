@@ -1,17 +1,23 @@
 ---
 /**
- * Full-width image CTA band. Slot `actions` renders the buttons.
+ * Full-width CTA band. Slot `actions` renders the buttons.
+ * With no `image`, renders a premium navy gradient + topographic texture.
  */
 interface Props {
-  image: string;
+  image?: string;
   title: string;
   text?: string;
+  /** CSS background-position focal point for the image. */
+  position?: string;
 }
 
-const { image, title, text } = Astro.props;
+const { image, title, text, position = "center" } = Astro.props;
+const bgStyle = image
+  ? `background-image:url('${image}');background-position:${position}`
+  : undefined;
 ---
 
-<section class="cta-banner" style={`background-image:url('${image}')`}>
+<section class:list={["cta-banner", { "cta-banner-plain": !image }]} style={bgStyle}>
   <div class="container cta-banner-inner">
     <div class="reveal">
       <h2 class="serif-title title-lg">{title}</h2>

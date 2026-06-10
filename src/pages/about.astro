@@ -55,7 +55,8 @@ const commitments = [
 >
   <main id="main">
     <HeroSection
-      image="/assets/tideborne/backgrounds/about-hero-ship.jpg"
+      image="/assets/tideborne/backgrounds/about-hero-clean.jpg"
+      position="center 55%"
       eyebrow="About Tideborne Voyages"
       lead="Tideborne Voyages was founded on a simple belief: the world's most extraordinary places deserve extraordinary care."
       short
@@ -88,13 +89,13 @@ const commitments = [
             </p>
           </div>
           <div class="reveal reveal-delay-1">
-            <div class="rounded-media" style="margin-bottom:2.5rem">
+            <div class="rounded-media founder-media" style="margin-bottom:2.5rem">
               <img
-                src="/assets/tideborne/about/founder-expedition-director.jpg"
+                src="/assets/tideborne/about/founder-clean.jpg"
                 alt="Elena Marlowe, Founder and Expedition Director of Tideborne Voyages, on deck in expedition gear"
                 loading="lazy"
-                width="800"
-                height="640"
+                width="388"
+                height="514"
               />
             </div>
             <p class="eyebrow">Our Philosophy</p>
@@ -122,12 +123,12 @@ const commitments = [
     <!-- Large image block -->
     <section aria-hidden="true">
       <img
-        src="/assets/tideborne/about/zodiac-whale-glacier.jpg"
+        src="/assets/tideborne/about/zodiac-whale-clean.jpg"
         alt=""
         loading="lazy"
         width="1600"
         height="600"
-        style="width:100%;max-height:460px;object-fit:cover"
+        style="width:100%;max-height:420px;object-fit:cover;object-position:center 65%"
       />
     </section>
 
@@ -181,7 +182,9 @@ const commitments = [
           {
             guides.map((g) => (
               <article class="guide-card">
-                <img src={g.image} alt={`${g.name}, ${g.role}`} loading="lazy" width="480" height="372" />
+                <div class="monogram-media" aria-hidden="true">
+                  <span class="monogram-circle">{g.initials}</span>
+                </div>
                 <div class="guide-card-body">
                   <h3>{g.name}</h3>
                   <p>{g.role}</p>
@@ -220,10 +223,7 @@ const commitments = [
       </div>
     </section>
 
-    <CTASection
-      image="/assets/tideborne/backgrounds/footer-whale-ocean.jpg"
-      title="The World Is Waiting. Let's Explore It Together."
-    >
+    <CTASection title="The World Is Waiting. Let's Explore It Together.">
       <Fragment slot="actions">
         <a class="btn btn-gold" href="/expedition-cruises">
           Explore Voyages <span class="btn-arrow" aria-hidden="true">→</span>
@@ -236,6 +236,14 @@ const commitments = [
 </BaseLayout>
 
 <style>
+  .founder-media {
+    max-width: 340px;
+  }
+  .founder-media img {
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    object-position: center top;
+  }
   .inquiry-panel {
     background: #fff;
     border: 1px solid rgba(4, 30, 45, 0.1);

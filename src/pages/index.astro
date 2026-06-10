@@ -64,7 +64,8 @@ const testimonials = [
   <main id="main">
     <!-- 1. Hero -->
     <HeroSection
-      image="/assets/tideborne/backgrounds/home-hero-ship-polar.jpg"
+      image="/assets/tideborne/backgrounds/home-hero-clean.jpg"
+      position="center 38%"
       eyebrow="Explore the world. Leave nothing but wake."
       lead="Boutique expedition cruises to the world's most remote destinations — led by experts, inspired by nature."
     >
@@ -249,7 +250,7 @@ const testimonials = [
       </div>
       <div class="story-image">
         <img
-          src="/assets/tideborne/about/zodiac-whale-glacier.jpg"
+          src="/assets/tideborne/about/zodiac-whale-clean.jpg"
           alt="Guests in a Zodiac watching a whale surface near a glacier"
           loading="lazy"
           width="900"
@@ -277,7 +278,8 @@ const testimonials = [
 
     <!-- 7. CTA -->
     <CTASection
-      image="/assets/tideborne/backgrounds/footer-cta-ship-mountains.jpg"
+      image="/assets/tideborne/backgrounds/whale-ocean-clean.jpg"
+      position="center 62%"
       title="Your Next Extraordinary Journey Awaits."
       text="Let our Voyage Specialists help you find the perfect expedition."
     >
@@ -312,7 +314,10 @@ const testimonials = [
   .story-panel-dark { background: var(--tide-navy-900); }
   .story-panel-cream { background: var(--tide-cream); }
   .story-image { position: relative; min-height: 360px; }
-  .story-image img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .story-image img {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: cover; object-position: center 70%;
+  }
 
   .testimonial-slide { display: none; margin: 0; }
   .testimonial-slide.is-active { display: block; animation: tideFadeUp 0.55s var(--ease); }

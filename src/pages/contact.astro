@@ -54,7 +54,8 @@ const assurances = [
 >
   <main id="main">
     <HeroSection
-      image="/assets/tideborne/backgrounds/contact-hero-ship.jpg"
+      image="/assets/tideborne/backgrounds/contact-hero-clean.jpg"
+      position="center 45%"
       eyebrow="We're Here to Help"
       lead="Whether you're ready to book or simply exploring options, our expedition experts are here to craft a seamless, unforgettable experience — just for you."
       short
@@ -158,7 +159,7 @@ const assurances = [
             {
               specialists.map((s) => (
                 <div class="specialist-card">
-                  <img src={s.image} alt={`${s.name}, ${s.focus}`} loading="lazy" width="124" height="124" />
+                  <span class="monogram-avatar" aria-hidden="true">{s.initials}</span>
                   <div>
                     <h3>{s.name}</h3>
                     <p>{s.role}<br />{s.focus}</p>
@@ -288,7 +289,7 @@ const assurances = [
 
   .contact-aside-image {
     flex: 1; min-height: 220px;
-    background: url("/assets/tideborne/backgrounds/contact-penguin-landscape.jpg") center / cover no-repeat;
+    background: url("/assets/tideborne/backgrounds/penguin-landscape-clean.jpg") center 60% / cover no-repeat;
   }
 
   .specialists-block {
