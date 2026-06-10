@@ -13,12 +13,12 @@ const { destination: d, detailed = false } = Astro.props;
   class="destination-card"
   href="/expedition-cruises"
   data-filters={d.filters.join(" ")}
-  aria-label={`${d.name} — ${d.title}. View expedition cruises.`}
+  aria-label={`${d.name}, ${d.title}. View expedition cruises.`}
 >
   <div class="destination-card-media">
     <img
       src={detailed ? d.largeImage : d.cardImage}
-      alt={`${d.name} — ${d.title}`}
+      alt={`${d.name}, ${d.title}`}
       loading="lazy"
       width="640"
       height="520"

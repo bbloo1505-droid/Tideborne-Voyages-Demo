@@ -6,7 +6,7 @@ export const brand = {
   tagline: "Explore the world. Leave nothing but wake.",
   defaultTitle: "Tideborne Voyages | Boutique Expedition Cruises",
   defaultDescription:
-    "Boutique expedition cruises to the world's most remote destinations — Antarctica, Iceland, the Galápagos, Norway and beyond — led by experts, inspired by nature.",
+    "Boutique expedition cruises to the world's most remote destinations: Antarctica, Iceland, the Galápagos, Norway and beyond, led by experts and inspired by nature.",
   phone: "1-800-487-2648",
   phoneHref: "tel:1-800-487-2648",
   contactEmail: "hello@tidebornevoyages.com",
@@ -242,7 +242,7 @@ export const fleet: Ship[] = [
 ];
 
 /**
- * Team members are rendered as styled monogram cards — the asset pack
+ * Team members are rendered as styled monogram cards. The asset pack
  * does not include clean portrait photography for them.
  */
 export const guides = [
