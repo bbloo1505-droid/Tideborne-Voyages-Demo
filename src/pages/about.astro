@@ -1,109 +1,246 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { brand } from "../data/brand.ts";
+import HeroSection from "../components/HeroSection.astro";
+import CurvedDivider from "../components/CurvedDivider.astro";
+import CTASection from "../components/CTASection.astro";
+import TrustStrip from "../components/TrustStrip.astro";
+import ContactForm from "../components/ContactForm.astro";
+import { brand, guides } from "../data/site.ts";
+
+const philosophy = [
+  {
+    title: "Go Further",
+    text: "Our small ships unlock rare access to remote places few ever see.",
+    icon: `<circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/>`,
+  },
+  {
+    title: "Travel Deeper",
+    text: "Expert-led experiences reveal the stories behind each destination.",
+    icon: `<path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/>`,
+  },
+  {
+    title: "Leave Positively",
+    text: "We travel with respect — for nature, local cultures, and future generations.",
+    icon: `<path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>`,
+  },
+];
+
+const commitments = [
+  {
+    title: "Low Impact Operations",
+    text: "Cleaner fuels, efficient ships, reduced waste.",
+    icon: `<path d="M2 21c1.5 1 3.5 1 5 0s3.5-1 5 0 3.5 1 5 0 3.5-1 5 0"/><path d="M12 3v13M12 3l-4 4M12 3l4 4"/>`,
+  },
+  {
+    title: "Community Partnerships",
+    text: "We support education, conservation, and local livelihoods.",
+    icon: `<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>`,
+  },
+  {
+    title: "Conservation in Action",
+    text: "We contribute to research and habitat protection worldwide.",
+    icon: `<path d="M12 3c-1.2 2.5-4 3.5-6 3 0 6 2 12 6 15 4-3 6-9 6-15-2 .5-4.8-.5-6-3z"/>`,
+  },
+  {
+    title: "Expert-Led Stewardship",
+    text: "Knowledgeable guides who bring every place to life — and protect it.",
+    icon: `<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>`,
+  },
+];
 ---
 
 <BaseLayout
-  title={`About | ${brand.siteName}`}
-  description="About AeroSure Advisory — practical aviation safety and assurance advisory for ATM, ANS, and operational change."
+  title="About Us | Tideborne Voyages"
+  description="Tideborne Voyages was founded on a simple belief: the world's most extraordinary places deserve extraordinary care. Meet our founders, philosophy, and expedition team."
 >
-  <main id="main" class="container page-shell">
-    <section class="page-hero reveal" data-reveal>
-      <p class="page-kicker">About {brand.siteName}</p>
-      <h1 class="section-title">Aviation safety assurance built for operational reality</h1>
-      <p class="section-lead">
-        {brand.siteName} supports aviation organisations with practical safety and assurance expertise grounded in operational reality. We help teams
-        navigate complexity, strengthen decision-making, and build confidence in systems, processes, and outcomes.
-      </p>
-    </section>
+  <main id="main">
+    <HeroSection
+      image="/assets/tideborne/backgrounds/about-hero-ship.jpg"
+      eyebrow="About Tideborne Voyages"
+      lead="Tideborne Voyages was founded on a simple belief: the world's most extraordinary places deserve extraordinary care."
+      short
+    >
+      Our Purpose.<br /><em>Your Journey. Our Responsibility.</em>
+    </HeroSection>
 
-    <section class="section" style="padding:0 0 2.5rem">
-      <div class="grid-3">
-        <article class="card reveal" data-reveal>
-          <h3>Technical credibility</h3>
-          <p>Structured methods, traceable evidence, and proportionate rigour suited to high-regulation environments.</p>
-        </article>
-        <article class="card reveal reveal-delay-1" data-reveal>
-          <h3>Operational fit</h3>
-          <p>Engagements respect delivery pace, governance rhythms, and the way safety and engineering teams collaborate.</p>
-        </article>
-        <article class="card reveal reveal-delay-2" data-reveal>
-          <h3>Clear communication</h3>
-          <p>Assurance narratives and artefacts that boards, regulators, and programme leads can follow without ambiguity.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="page-photo-stack">
-      <article class="page-photo-band">
-        <div class="page-photo-media" style="--band-img:url('https://images.unsplash.com/photo-1540339832862-474599807836?auto=format&fit=crop&w=2200&q=85')"></div>
-        <div class="page-photo-content">
-          <div class="page-photo-card reveal" data-reveal>
-            <h3>ATC and operational context first</h3>
-            <p>
-              Assurance is most effective when grounded in live operational realities. AeroSure engagements are built around how ATC teams,
-              supervisors, and programme leads actually work.
+    <!-- Story + philosophy -->
+    <section class="section section-cream on-cream" style="padding-top:2.5rem" aria-labelledby="story-heading">
+      <div class="container">
+        <div class="grid-2" style="align-items:start;gap:3.5rem">
+          <div class="reveal">
+            <p class="eyebrow">Our Story</p>
+            <h2 class="serif-title title-lg" id="story-heading">
+              Born from a Lifelong<br /><em>Passion for Exploration.</em>
+            </h2>
+            <p class="lead">
+              Tideborne Voyages was founded by lifelong explorers, mariners, and conservation advocates
+              who believe travel has the power to inspire, connect, and protect.
+            </p>
+            <p class="lead">
+              Every voyage we design is the result of decades spent exploring remote corners of the
+              globe — and a commitment to sharing them with care and purpose.
+            </p>
+            <p style="font-family:var(--tide-serif);font-style:italic;font-size:1.3rem;color:#9a7426;margin:1.75rem 0 0.35rem">
+              E. Marlowe
+            </p>
+            <p style="margin:0;font-size:0.82rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(4,30,45,0.6)">
+              Elena Marlowe — Founder &amp; Expedition Director
             </p>
           </div>
-        </div>
-      </article>
-      <article class="page-photo-band">
-        <div class="page-photo-media" style="--band-img:url('https://images.unsplash.com/photo-1517479149777-5f3b1511d5ad?auto=format&fit=crop&w=2200&q=85')"></div>
-        <div class="page-photo-content">
-          <div class="page-photo-card reveal reveal-delay-1" data-reveal>
-            <h3>Independent, practical, and proportionate</h3>
-            <p>
-              The goal is not excess paperwork. It is clear, defensible assurance that supports safer implementation and stronger decision confidence.
-            </p>
+          <div class="reveal reveal-delay-1">
+            <div class="rounded-media" style="margin-bottom:2.5rem">
+              <img
+                src="/assets/tideborne/about/founder-expedition-director.jpg"
+                alt="Elena Marlowe, Founder and Expedition Director of Tideborne Voyages, on deck in expedition gear"
+                loading="lazy"
+                width="800"
+                height="640"
+              />
+            </div>
+            <p class="eyebrow">Our Philosophy</p>
+            <h3 class="serif-title title-md">We Believe in <em>Meaningful Travel.</em></h3>
+            <div style="display:grid;gap:1.25rem;margin-top:1.5rem">
+              {
+                philosophy.map((p) => (
+                  <div style="display:flex;gap:1.1rem;align-items:flex-start">
+                    <span class="feature-icon-circle" style="width:48px;height:48px;flex-shrink:0">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:20px;height:20px" set:html={p.icon} />
+                    </span>
+                    <div>
+                      <h4 class="feature-icon-title" style="margin:0 0 0.25rem">{p.title}</h4>
+                      <p class="feature-icon-text" style="margin:0">{p.text}</p>
+                    </div>
+                  </div>
+                ))
+              }
+            </div>
           </div>
         </div>
-      </article>
+      </div>
     </section>
 
-    <section class="section section-muted" style="margin:0 -1.25rem;padding:3.25rem 1.25rem">
-      <div class="container split">
-        <div>
-          <p class="page-kicker reveal" data-reveal>How we work</p>
-          <h2 class="section-title reveal reveal-delay-1" data-reveal>A focused model built for confidence</h2>
-          <p class="section-lead reveal" data-reveal>
-            Every engagement is scoped to reduce ambiguity quickly and provide practical, evidence-backed decisions.
+    <!-- Large image block -->
+    <section aria-hidden="true">
+      <img
+        src="/assets/tideborne/about/zodiac-whale-glacier.jpg"
+        alt=""
+        loading="lazy"
+        width="1600"
+        height="600"
+        style="width:100%;max-height:460px;object-fit:cover"
+      />
+    </section>
+
+    <!-- Sustainability -->
+    <section class="section section-cream-2 on-cream" id="sustainability" aria-labelledby="sustainability-heading">
+      <div class="container">
+        <div style="max-width:44rem" class="reveal">
+          <p class="eyebrow">Travel With Purpose</p>
+          <h2 class="serif-title title-lg" id="sustainability-heading">
+            Sustainable. Responsible. <em>Intentional.</em>
+          </h2>
+          <p class="lead">
+            We're committed to protecting the planet and supporting the communities we visit.
+            Sustainability isn't a program — it's how we operate.
           </p>
-          <ul class="checklist reveal reveal-delay-1" data-reveal>
-            <li><strong>Define the change context</strong> and applicable obligations.</li>
-            <li><strong>Assess hazards and controls</strong> with proportional rigor.</li>
-            <li><strong>Build assurance artefacts</strong> for internal and external review.</li>
-            <li><strong>Support implementation</strong> with practical follow-through.</li>
-          </ul>
         </div>
-        <article class="card reveal reveal-delay-2" data-reveal>
-          <h3 style="margin-top:0">Who we support</h3>
-          <p class="section-lead" style="font-size:1rem;margin-bottom:1rem">
-            ANSP programme teams, airports, regulators, and delivery partners managing safety-critical operational change.
-          </p>
-          <p class="section-lead" style="font-size:1rem;margin:0">
-            AeroSure integrates with existing governance and engineering teams to keep assurance practical and delivery-aware.
-          </p>
-        </article>
+        <div class="feature-icon-row reveal reveal-delay-1" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin-top:2rem">
+          {
+            commitments.map((c) => (
+              <div class="feature-icon align-left">
+                <span class="feature-icon-circle">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={c.icon} />
+                </span>
+                <h3 class="feature-icon-title">{c.title}</h3>
+                <p class="feature-icon-text">{c.text}</p>
+              </div>
+            ))
+          }
+        </div>
       </div>
     </section>
 
-    <section class="section" style="padding:3rem 0 0">
-      <p class="page-kicker reveal" data-reveal>Why clients engage us</p>
-      <h2 class="section-title reveal reveal-delay-1" data-reveal>Clear assurance, faster decision quality</h2>
-      <div class="grid-3">
-        <article class="card reveal" data-reveal>
-          <h3>Better risk visibility</h3>
-          <p>Stakeholders can clearly understand residual risk and rationale behind key control decisions.</p>
-        </article>
-        <article class="card reveal reveal-delay-1" data-reveal>
-          <h3>Stronger regulatory confidence</h3>
-          <p>Outputs are structured so reviews are efficient, traceable, and easier to defend.</p>
-        </article>
-        <article class="card reveal reveal-delay-2" data-reveal>
-          <h3>Practical implementation support</h3>
-          <p>Assurance work is integrated with delivery timelines, not isolated from operational realities.</p>
-        </article>
+    <CurvedDivider from="cream-2" to="navy" flip />
+
+    <!-- Guides -->
+    <section class="section section-navy topographic-bg on-dark" id="guides" aria-labelledby="guides-heading">
+      <div class="container">
+        <div class="section-intro-grid">
+          <div class="reveal">
+            <p class="eyebrow">Expedition Team</p>
+            <h2 class="serif-title title-lg" id="guides-heading">
+              Guided by <em>the Best.</em>
+            </h2>
+          </div>
+          <p class="lead reveal reveal-delay-1" style="max-width:34rem;align-self:end">
+            Marine biologists, historians, photographers, and naturalists — our expedition team turns
+            every landing into a masterclass.
+          </p>
+        </div>
+        <div class="grid-4 reveal">
+          {
+            guides.map((g) => (
+              <article class="guide-card">
+                <img src={g.image} alt={`${g.name}, ${g.role}`} loading="lazy" width="480" height="372" />
+                <div class="guide-card-body">
+                  <h3>{g.name}</h3>
+                  <p>{g.role}</p>
+                </div>
+              </article>
+            ))
+          }
+        </div>
       </div>
     </section>
+
+    <CurvedDivider from="navy" to="cream" />
+
+    <!-- Inquiry panel -->
+    <section class="section section-cream on-cream" style="padding-top:3.5rem" aria-labelledby="inquiry-heading">
+      <div class="container">
+        <div class="grid-2" style="align-items:start;gap:3.5rem">
+          <div class="reveal">
+            <p class="eyebrow">Get in Touch</p>
+            <h2 class="serif-title title-lg" id="inquiry-heading">
+              Start Your<br /><em>Next Journey.</em>
+            </h2>
+            <p class="lead">
+              Our expedition specialists are here to help you plan a voyage that's perfectly yours.
+            </p>
+            <div style="display:grid;gap:0.9rem;margin-top:1.75rem;font-size:0.95rem">
+              <p style="margin:0"><strong>Call:</strong> <a href={brand.phoneHref} style="color:#9a7426;text-decoration:none">{brand.phone}</a></p>
+              <p style="margin:0"><strong>Email:</strong> <a href={`mailto:${brand.contactEmail}`} style="color:#9a7426;text-decoration:none">{brand.contactEmail}</a></p>
+              <p style="margin:0"><strong>Visit:</strong> {brand.address[0]}, {brand.address[1]}</p>
+            </div>
+          </div>
+          <div class="inquiry-panel reveal reveal-delay-1">
+            <ContactForm variant="compact" id="about-inquiry" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <CTASection
+      image="/assets/tideborne/backgrounds/footer-whale-ocean.jpg"
+      title="The World Is Waiting. Let's Explore It Together."
+    >
+      <Fragment slot="actions">
+        <a class="btn btn-gold" href="/expedition-cruises">
+          Explore Voyages <span class="btn-arrow" aria-hidden="true">→</span>
+        </a>
+      </Fragment>
+    </CTASection>
+
+    <TrustStrip />
   </main>
 </BaseLayout>
+
+<style>
+  .inquiry-panel {
+    background: #fff;
+    border: 1px solid rgba(4, 30, 45, 0.1);
+    border-radius: 14px;
+    padding: 2rem;
+    box-shadow: 0 24px 60px rgba(4, 30, 45, 0.1);
+  }
+</style>

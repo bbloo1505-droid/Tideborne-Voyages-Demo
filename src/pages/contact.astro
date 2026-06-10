@@ -1,101 +1,310 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { brand } from "../data/brand.ts";
+import HeroSection from "../components/HeroSection.astro";
+import CurvedDivider from "../components/CurvedDivider.astro";
+import TrustStrip from "../components/TrustStrip.astro";
+import ContactForm from "../components/ContactForm.astro";
+import { brand, specialists } from "../data/site.ts";
+
+const promises = [
+  {
+    title: "Personalized Planning",
+    text: "Tailored voyages that match your passions.",
+    icon: `<circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/>`,
+  },
+  {
+    title: "Quick & Considerate Response",
+    text: "We typically reply within 1 hour.",
+    icon: `<circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>`,
+  },
+  {
+    title: "Trusted Expertise",
+    text: "Portions of every voyage support conservation and local communities.",
+    icon: `<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/>`,
+  },
+];
+
+const assurances = [
+  {
+    title: "No Hidden Fees",
+    text: "Transparent pricing, no surprises.",
+    icon: `<path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/>`,
+  },
+  {
+    title: "Flexible Booking",
+    text: "Peace of mind with flexible options.",
+    icon: `<rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="M9 16l2 2 4-4"/>`,
+  },
+  {
+    title: "Sustainable Travel",
+    text: "Meaningful experiences that protect the places we explore.",
+    icon: `<path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>`,
+  },
+  {
+    title: "24/7 Support",
+    text: "We're here for you before, during, and after your voyage.",
+    icon: `<path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/>`,
+  },
+];
 ---
 
 <BaseLayout
-  title={`Contact | ${brand.siteName}`}
-  description="Contact AeroSure Advisory for aviation safety, ATM assurance, and independent advisory support."
+  title="Plan Your Journey | Contact Tideborne Voyages"
+  description="Request a brochure or speak with a Tideborne Voyage Specialist. Whether you're ready to book or simply exploring options, our expedition experts are here to help."
 >
-  <main id="main" class="container page-shell">
-    <section class="page-hero reveal" data-reveal>
-      <p class="page-kicker">Contact</p>
-      <h1 class="section-title">Start a focused conversation on your safety challenge</h1>
-      <p class="section-lead">
-        Operators, airports, ANSPs, and aviation stakeholders are welcome to reach out for advisory support. Share your context and objectives, and we
-        will propose a practical next step.
-      </p>
-    </section>
+  <main id="main">
+    <HeroSection
+      image="/assets/tideborne/backgrounds/contact-hero-ship.jpg"
+      eyebrow="We're Here to Help"
+      lead="Whether you're ready to book or simply exploring options, our expedition experts are here to craft a seamless, unforgettable experience — just for you."
+      short
+    >
+      Plan Your <em>Journey.</em>
+    </HeroSection>
 
-    <section class="section" style="padding:0 0 2rem">
-      <div class="split">
-        <div class="reveal" data-reveal>
-          <h2 class="section-title" style="font-size:1.6rem">Get in touch</h2>
-          <p class="section-lead">
-            <strong>Email</strong><br />
-            <a href={`mailto:${brand.contactEmail}`}>{brand.contactEmail}</a>
-          </p>
-          <p class="section-lead">
-            <strong>Location</strong><br />
-            Australia
-          </p>
-        </div>
-        <form class="contact-form reveal reveal-delay-1" data-reveal action="#" method="post">
-          <label>Name<input type="text" name="name" required autocomplete="name" /></label>
-          <label>Work email<input type="email" name="email" required autocomplete="email" /></label>
-          <label>Organisation<input type="text" name="org" autocomplete="organization" /></label>
-          <label>Message<textarea name="message" required placeholder="How can we help?"></textarea></label>
-          <button class="btn btn-primary" type="submit">Send message</button>
-          <p class="form-note">Demo form for now — Supabase integration can be added next.</p>
-        </form>
-      </div>
-    </section>
-
-    <section class="page-photo-stack">
-      <article class="page-photo-band">
-        <div class="page-photo-media" style="--band-img:url('https://images.unsplash.com/photo-1529074963764-98f45c47344b?auto=format&fit=crop&w=2200&q=85')"></div>
-        <div class="page-photo-content">
-          <div class="page-photo-card reveal" data-reveal>
-            <h3>Talk through your challenge with context</h3>
-            <p>
-              The best first discussion is specific: what is changing, where risk concerns sit, and what confidence level is required before deployment.
-            </p>
-          </div>
-        </div>
-      </article>
-      <article class="page-photo-band">
-        <div class="page-photo-media" style="--band-img:url('https://images.unsplash.com/photo-1517479149777-5f3b1511d5ad?auto=format&fit=crop&w=2200&q=85')"></div>
-        <div class="page-photo-content">
-          <div class="page-photo-card reveal reveal-delay-1" data-reveal>
-            <h3>Fast, focused engagement options</h3>
-            <p>
-              If helpful, AeroSure can begin with a short diagnostic sprint to identify priority assurance actions and immediate next steps.
-            </p>
-          </div>
-        </div>
-      </article>
-    </section>
-
-    <section class="section section-muted" style="margin:0 -1.25rem;padding:3.25rem 1.25rem">
+    <!-- Promises -->
+    <section class="section section-cream on-cream" style="padding:2rem 0 3.5rem" aria-label="Our promise to you">
       <div class="container">
-        <p class="page-kicker reveal" data-reveal>How we can help</p>
-        <h2 class="section-title reveal reveal-delay-1" data-reveal>Common enquiry themes</h2>
-        <div class="grid-3">
-          <article class="card reveal" data-reveal>
-            <h3>Live programme risk issues</h3>
-            <p>Support to clarify hazards, controls, and evidence requirements for ongoing delivery.</p>
-          </article>
-          <article class="card reveal reveal-delay-1" data-reveal>
-            <h3>Regulatory readiness</h3>
-            <p>Prepare assurance artefacts and narratives ahead of regulator or governance reviews.</p>
-          </article>
-          <article class="card reveal reveal-delay-2" data-reveal>
-            <h3>Targeted capability uplift</h3>
-            <p>Advisory sessions for teams improving practical assurance quality and decision traceability.</p>
-          </article>
+        <div class="feature-icon-row reveal" style="grid-template-columns:repeat(auto-fit,minmax(230px,1fr))">
+          {
+            promises.map((p) => (
+              <div class="feature-icon align-left">
+                <span class="feature-icon-circle">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={p.icon} />
+                </span>
+                <h3 class="feature-icon-title">{p.title}</h3>
+                <p class="feature-icon-text">{p.text}</p>
+              </div>
+            ))
+          }
         </div>
       </div>
     </section>
 
-    <section class="section" style="padding:3rem 0 0">
-      <div class="card reveal" data-reveal>
-        <h3 style="margin-top:0">What happens after you submit?</h3>
-        <ul class="checklist" style="margin:0">
-          <li><strong>Initial response</strong> within two business days.</li>
-          <li><strong>Short discovery call</strong> to confirm context and objectives.</li>
-          <li><strong>Proposed next step</strong> with a practical engagement option.</li>
-        </ul>
+    <!-- Form + other ways to connect -->
+    <section class="section section-cream-2 on-cream" style="padding-top:0" aria-labelledby="inquiry-heading">
+      <div class="container">
+        <div class="contact-grid">
+          <div class="contact-form-panel reveal">
+            <h2 class="serif-title title-md" id="inquiry-heading" style="margin-bottom:0.35rem">
+              Send Us an Inquiry
+            </h2>
+            <p style="margin:0 0 1.75rem;font-size:0.9rem;color:rgba(4,30,45,0.62)">
+              Fill out the form below and a Travel Specialist will be in touch shortly.
+            </p>
+            <ContactForm id="contact-inquiry" />
+          </div>
+
+          <aside class="contact-aside on-dark reveal reveal-delay-1" aria-label="Other ways to connect">
+            <div class="contact-aside-body">
+              <h2 class="serif-title title-md on-dark" style="color:var(--tide-gold-light)">
+                Other Ways to Connect
+              </h2>
+              <ul class="contact-methods">
+                <li>
+                  <span class="contact-method-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                  </span>
+                  <div>
+                    <strong>Call Us</strong>
+                    <a href={brand.phoneHref}>{brand.phone}</a>
+                    <span>Speak with a Voyage Specialist</span>
+                  </div>
+                </li>
+                <li>
+                  <span class="contact-method-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                  </span>
+                  <div>
+                    <strong>Email Us</strong>
+                    <a href={`mailto:${brand.contactEmail}`}>{brand.contactEmail}</a>
+                    <span>We typically reply within 1 hour</span>
+                  </div>
+                </li>
+                <li>
+                  <span class="contact-method-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  </span>
+                  <div>
+                    <strong>Find Us</strong>
+                    <span>{brand.siteName}</span>
+                    <span>{brand.address[0]}<br />{brand.address[1]}</span>
+                  </div>
+                </li>
+              </ul>
+              <div class="contact-promise">
+                <img src="/assets/tideborne/decor/gold-compass-small.svg" alt="" width="38" height="38" />
+                <div>
+                  <strong>Your Journey, Your Way</strong>
+                  <span>Every voyage is thoughtfully planned around your interests, pace, and sense of wonder.</span>
+                </div>
+              </div>
+            </div>
+            <div class="contact-aside-image" role="img" aria-label="Penguins on a rocky shoreline beneath snow-covered mountains"></div>
+          </aside>
+        </div>
+
+        <!-- Specialists -->
+        <div class="specialists-block reveal" aria-labelledby="specialists-heading">
+          <div class="specialists-head">
+            <h2 class="serif-title title-md" id="specialists-heading" style="font-style:italic;color:var(--tide-gold-light);margin:0">
+              Your Travel Specialists
+            </h2>
+            <a class="text-link" href="/about#guides">
+              View All Specialists <span class="btn-arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
+          <div class="grid-3" style="gap:1.1rem">
+            {
+              specialists.map((s) => (
+                <div class="specialist-card">
+                  <img src={s.image} alt={`${s.name}, ${s.focus}`} loading="lazy" width="124" height="124" />
+                  <div>
+                    <h3>{s.name}</h3>
+                    <p>{s.role}<br />{s.focus}</p>
+                  </div>
+                </div>
+              ))
+            }
+          </div>
+        </div>
       </div>
     </section>
+
+    <CurvedDivider from="cream-2" to="cream" flip />
+
+    <!-- Assurances -->
+    <section class="section section-cream on-cream" style="padding:2.5rem 0 4rem" aria-label="Booking assurances">
+      <div class="container">
+        <div class="feature-icon-row reveal" style="grid-template-columns:repeat(auto-fit,minmax(210px,1fr))">
+          {
+            assurances.map((a) => (
+              <div class="feature-icon align-left">
+                <span class="feature-icon-circle">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={a.icon} />
+                </span>
+                <h3 class="feature-icon-title">{a.title}</h3>
+                <p class="feature-icon-text">{a.text}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <CurvedDivider from="cream" to="navy-deep" flip />
+
+    <!-- Bottom strip -->
+    <section class="section section-navy-deep on-dark" style="padding:3rem 0" aria-label="Plan your next journey">
+      <div class="container contact-bottom reveal">
+        <div style="display:flex;align-items:center;gap:1.25rem">
+          <img src="/assets/tideborne/decor/gold-compass-small.svg" alt="" width="44" height="44" />
+          <div>
+            <h2 class="serif-title title-md on-dark" style="margin:0 0 0.2rem">Let's Plan Your Next Journey</h2>
+            <p style="margin:0;font-size:0.88rem;color:rgba(244,239,228,0.65)">
+              Extraordinary places. Meaningful connections. Memories that last a lifetime.
+            </p>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:2rem;flex-wrap:wrap">
+          <a class="header-phone" href={brand.phoneHref} style="font-size:0.95rem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:16px;height:16px"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            {brand.phone}
+          </a>
+          <a class="btn btn-gold" href="#inquiry-heading">
+            Request a Brochure <span class="btn-arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <TrustStrip />
   </main>
 </BaseLayout>
+
+<style>
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 1.75rem;
+    align-items: stretch;
+  }
+  @media (max-width: 980px) { .contact-grid { grid-template-columns: 1fr; } }
+
+  .contact-form-panel {
+    background: #fff;
+    border: 1px solid rgba(4, 30, 45, 0.1);
+    border-radius: 14px;
+    padding: 2.25rem;
+    box-shadow: 0 24px 60px rgba(4, 30, 45, 0.1);
+  }
+  @media (max-width: 560px) { .contact-form-panel { padding: 1.5rem; } }
+
+  .contact-aside {
+    display: flex;
+    flex-direction: column;
+    border-radius: 14px;
+    overflow: hidden;
+    background: var(--tide-navy-900);
+    border: 1px solid rgba(201, 154, 72, 0.25);
+  }
+  .contact-aside-body { padding: 2.25rem; }
+  .contact-methods {
+    list-style: none; margin: 1.5rem 0 0; padding: 0;
+    display: grid; gap: 1.4rem;
+  }
+  .contact-methods li { display: flex; gap: 1rem; align-items: flex-start; }
+  .contact-method-icon {
+    width: 42px; height: 42px; border-radius: 50%; flex-shrink: 0;
+    border: 1px solid var(--tide-border);
+    display: inline-flex; align-items: center; justify-content: center;
+    color: var(--tide-gold);
+  }
+  .contact-method-icon svg { width: 18px; height: 18px; }
+  .contact-methods strong {
+    display: block; font-size: 0.66rem; font-weight: 700;
+    letter-spacing: 0.18em; text-transform: uppercase; color: var(--tide-gold);
+    margin-bottom: 0.2rem;
+  }
+  .contact-methods a {
+    display: block; color: var(--tide-cream-2); text-decoration: none;
+    font-size: 0.98rem; font-weight: 500;
+  }
+  .contact-methods a:hover { color: var(--tide-gold-light); }
+  .contact-methods span { display: block; font-size: 0.8rem; color: rgba(244, 239, 228, 0.6); }
+
+  .contact-promise {
+    margin-top: 1.75rem;
+    display: flex; gap: 1rem; align-items: flex-start;
+    border: 1px solid rgba(201, 154, 72, 0.35); border-radius: 10px;
+    padding: 1.1rem 1.2rem;
+    background: rgba(201, 154, 72, 0.07);
+  }
+  .contact-promise strong {
+    display: block; font-family: var(--tide-serif); font-style: italic; font-weight: 500;
+    font-size: 1rem; color: var(--tide-gold-light); margin-bottom: 0.25rem;
+  }
+  .contact-promise span { font-size: 0.82rem; color: rgba(244, 239, 228, 0.68); line-height: 1.6; }
+
+  .contact-aside-image {
+    flex: 1; min-height: 220px;
+    background: url("/assets/tideborne/backgrounds/contact-penguin-landscape.jpg") center / cover no-repeat;
+  }
+
+  .specialists-block {
+    margin-top: 1.75rem;
+    background: var(--tide-navy-900);
+    border: 1px solid rgba(201, 154, 72, 0.25);
+    border-radius: 14px;
+    padding: 1.75rem 2rem 2rem;
+  }
+  .specialists-head {
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 1rem; flex-wrap: wrap; margin-bottom: 1.4rem;
+  }
+
+  .contact-bottom {
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 1.75rem; flex-wrap: wrap;
+  }
+</style>

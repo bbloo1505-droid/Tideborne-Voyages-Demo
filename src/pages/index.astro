@@ -1,270 +1,376 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { services } from "../data/services.ts";
-import { brand } from "../data/brand.ts";
+import HeroSection from "../components/HeroSection.astro";
+import CurvedDivider from "../components/CurvedDivider.astro";
+import CTASection from "../components/CTASection.astro";
+import DestinationCard from "../components/DestinationCard.astro";
+import ItineraryCard from "../components/ItineraryCard.astro";
+import { destinations, itineraries } from "../data/site.ts";
+
+const homeDestinations = destinations.slice(0, 4);
+const featuredVoyages = itineraries.slice(0, 3);
+
+const whyItems = [
+  {
+    title: "Go Beyond",
+    text: "Access remote places most travellers never see.",
+    icon: `<circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>`,
+  },
+  {
+    title: "Travel Together",
+    text: "Small groups, big experiences, lasting bonds.",
+    icon: `<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>`,
+  },
+  {
+    title: "Expert Guides",
+    text: "Knowledgeable, passionate leaders in their field.",
+    icon: `<circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/>`,
+  },
+  {
+    title: "Immersive Experiences",
+    text: "Curated excursions that inspire wonder.",
+    icon: `<path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/>`,
+  },
+  {
+    title: "Your Safety",
+    text: "Industry-leading safety standards, always.",
+    icon: `<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>`,
+  },
+];
+
+const testimonials = [
+  {
+    text: "Tideborne Voyages exceeded every expectation. The ship, the crew, the experiences — simply world class.",
+    author: "Daniel R.",
+    detail: "Verified Guest · Antarctica Explorer",
+  },
+  {
+    text: "Watching whales surface beside our Zodiac while a naturalist narrated every moment — that's something no large ship could ever offer.",
+    author: "Priya S.",
+    detail: "Verified Guest · Svalbard Expedition",
+  },
+  {
+    text: "From the first phone call to the final sunset, every detail felt considered. We returned home changed.",
+    author: "Margaret & Tom H.",
+    detail: "Verified Guests · Galápagos Adventure",
+  },
+];
 ---
 
-<BaseLayout title={brand.defaultTitle} description={brand.defaultDescription}>
+<BaseLayout
+  title="Tideborne Voyages | Boutique Expedition Cruises to Remote Destinations"
+  description="Extraordinary places, meaningful journeys. Boutique expedition cruises to Antarctica, Iceland, the Galápagos, and Norway — led by experts, inspired by nature."
+>
   <main id="main">
-    <section class="hero" aria-labelledby="hero-heading">
-      <div class="hero-slides" aria-hidden="true">
-        <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1474302770737-173ee21bab63?auto=format&fit=crop&w=2200&q=85')"></div>
-        <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=2200&q=85')"></div>
-        <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1529074963764-98f45c47344b?auto=format&fit=crop&w=2200&q=85')"></div>
-        <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1517479149777-5f3b1511d5ad?auto=format&fit=crop&w=2200&q=85')"></div>
-      </div>
-      <div class="hero-overlay"></div>
-      <div class="hero-content">
-        <p class="hero-eyebrow reveal" data-reveal>Air navigation safety · ATM assurance</p>
-        <h1 id="hero-heading" class="hero-title reveal" data-reveal>
-          Aviation safety assurance,<br />built for operational reality
-        </h1>
-        <p class="hero-lead reveal" data-reveal>
-          {brand.siteName} helps aviation organisations strengthen safety, assurance, and operational decision-making through
-          practical advisory support, independent review, and real-world systems thinking.
-        </p>
-        <div class="hero-actions reveal" data-reveal>
-          <a class="btn btn-primary" href="/contact">Connect with us</a>
-          <a class="btn btn-ghost" href="/services">Explore services</a>
-        </div>
-      </div>
-    </section>
+    <!-- 1. Hero -->
+    <HeroSection
+      image="/assets/tideborne/backgrounds/home-hero-ship-polar.jpg"
+      eyebrow="Explore the world. Leave nothing but wake."
+      lead="Boutique expedition cruises to the world's most remote destinations — led by experts, inspired by nature."
+    >
+      Extraordinary Places.<br /><em>Meaningful Journeys.</em>
+      <Fragment slot="actions">
+        <a class="btn btn-gold" href="/expedition-cruises">
+          Explore Voyages <span class="btn-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="btn btn-ghost-light" href="/our-ships">View Expedition Ships</a>
+      </Fragment>
+    </HeroSection>
 
-    <section class="section" id="about">
+    <!-- 2. Proof strip -->
+    <section class="proof-strip" aria-label="Why guests trust Tideborne">
       <div class="container">
-        <div class="grid-3">
-          <article class="card reveal" data-reveal>
-            <h2 style="margin-top:0;font-size:1.3rem">Operational grounding</h2>
-            <p>Assurance shaped around how ANSP, airport, and programme teams actually run change and oversight day to day.</p>
-          </article>
-          <article class="card reveal reveal-delay-1" data-reveal>
-            <h2 style="margin-top:0;font-size:1.3rem">Evidence you can defend</h2>
-            <p>Traceable arguments, proportional controls, and artefacts structured for regulator and board scrutiny.</p>
-          </article>
-          <article class="card reveal reveal-delay-2" data-reveal>
-            <h2 style="margin-top:0;font-size:1.3rem">Independent perspective</h2>
-            <p>Clear challenge and advisory input where complexity, interfaces, and implementation risk need an experienced view.</p>
-          </article>
+        <div class="proof-grid reveal">
+          <div class="proof-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15a7 7 0 1 0 0-14 7 7 0 0 0 0 14z"/><path d="M8.21 13.89 7 23l5-3 5 3-1.21-9.12"/></svg>
+            <span class="proof-value">20+</span>
+            <span class="proof-label">Years of<br />Exploration</span>
+          </div>
+          <div class="proof-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            <span class="proof-value">100+</span>
+            <span class="proof-label">Unique<br />Itineraries</span>
+          </div>
+          <div class="proof-item">
+            <span class="proof-value" style="letter-spacing:0.08em;font-size:1.15rem">TRAVEL+<br />LEISURE</span>
+            <span class="proof-label">World's Best<br />Small Ship Cruise Line</span>
+          </div>
+          <div class="proof-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <span class="proof-value">98%</span>
+            <span class="proof-label">Guest Satisfaction<br />Rating</span>
+          </div>
+          <div class="proof-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+            <span class="proof-label" style="margin-top:0.4rem">Sustainable<br />Tourism Partner</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section section-muted" id="engagement-model">
-      <div class="container split">
-        <div>
-          <p class="page-kicker reveal" data-reveal>Engagement model</p>
-          <h2 class="section-title reveal reveal-delay-1" data-reveal>A clear path from risk to confidence</h2>
-          <p class="section-lead reveal" data-reveal>
-            AeroSure engagements follow a disciplined sequence so stakeholders can see how assurance is built and maintained through delivery.
-          </p>
-          <ul class="checklist reveal reveal-delay-1" data-reveal>
-            <li><strong>Frame the change</strong> — scope, obligations, interfaces, and decision points.</li>
-            <li><strong>Assess risk</strong> — hazards, barriers, and proportional controls.</li>
-            <li><strong>Build assurance</strong> — evidence packs and stakeholder-ready narrative.</li>
-            <li><strong>Embed and monitor</strong> — practical follow-through after deployment.</li>
-          </ul>
-        </div>
-        <div class="card reveal reveal-delay-2" data-reveal>
-          <img
-            src="/about/team.png"
-            alt="Aviation operations and safety assurance planning workspace"
-            width="640"
-            height="480"
-            loading="lazy"
-            style="border-radius:10px;margin-bottom:1rem"
-          />
-          <h3 style="margin:0 0 0.5rem">What this means for clients</h3>
-          <p style="margin:0;color:var(--slate)">
-            Better visibility of risk decisions, stronger internal alignment, and safer implementation confidence across ATM and air navigation programmes.
-          </p>
-        </div>
-      </div>
-    </section>
+    <CurvedDivider from="cream" to="navy" flip />
 
-    <section class="section pathway-intro" id="service-pathways">
+    <!-- 3. Iconic destinations -->
+    <section class="section section-navy topographic-bg on-dark" aria-labelledby="destinations-heading">
       <div class="container">
-        <p class="page-kicker reveal" data-reveal>Service pathways</p>
-        <h2 class="section-title reveal reveal-delay-1" data-reveal>Focused support across navigation safety, ATM assurance, and review</h2>
-      </div>
-    </section>
-
-    <section class="pathway-strip strip-1">
-      <div class="pathway-media" style="--pathway-img:url('https://images.unsplash.com/photo-1544016768-982d1554f0b9?auto=format&fit=crop&w=2200&q=85')"></div>
-      <div class="container pathway-content-wrap">
-        <article class="pathway-panel">
-          <h3>Air navigation safety</h3>
-          <p>
-            Practical support for ANS safety performance, change-related risk, and assurance that reflects operational reality — not abstract compliance alone.
-          </p>
-          <p><a class="text-link" href="/services#air-navigation-safety">Open this service →</a></p>
-        </article>
-      </div>
-    </section>
-
-    <section class="pathway-strip strip-2">
-      <div class="pathway-media" style="--pathway-img:url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=2200&q=85')"></div>
-      <div class="container pathway-content-wrap">
-        <article class="pathway-panel">
-          <h3>ATM assurance</h3>
-          <p>
-            Structured assurance for ATM change — evidence, verification intent, and operational release confidence aligned to programme pace.
-          </p>
-          <p><a class="text-link" href="/services#atm-assurance">Open this service →</a></p>
-        </article>
-      </div>
-    </section>
-
-    <section class="pathway-strip strip-3">
-      <div class="pathway-media" style="--pathway-img:url('https://images.unsplash.com/photo-1529074963764-98f45c47344b?auto=format&fit=crop&w=2200&q=85')"></div>
-      <div class="container pathway-content-wrap">
-        <article class="pathway-panel">
-          <h3>Independent review &amp; advisory</h3>
-          <p>
-            Challenge, peer review, and board-ready summaries that strengthen decision quality for safety-critical operational and technology change.
-          </p>
-          <p><a class="text-link" href="/services#independent-review-advisory">Open this service →</a></p>
-        </article>
-      </div>
-    </section>
-
-    <section class="section section-muted" id="projects">
-      <div class="container">
-        <p class="page-kicker reveal" data-reveal>Selected engagements</p>
-        <h2 class="section-title reveal reveal-delay-1" data-reveal>Representative programme outcomes</h2>
-        <div class="grid-3">
-          <article class="card reveal" data-reveal>
-            <h3>Major ATM upgrade</h3>
-            <p>Safety case support and implementation assurance aligned to controlled operational release.</p>
-          </article>
-          <article class="card reveal reveal-delay-1" data-reveal>
-            <h3>Assurance governance uplift</h3>
-            <p>Clearer ownership across interfaces, stronger evidence quality, and faster assurance decisions.</p>
-          </article>
-          <article class="card reveal reveal-delay-2" data-reveal>
-            <h3>Independent challenge review</h3>
-            <p>Objective, board-ready assurance ahead of safety-critical milestones and regulatory engagement.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="services-icons">
-      <div class="container">
-        <p class="page-kicker reveal" data-reveal>Service catalogue</p>
-        <h2 class="section-title reveal reveal-delay-1" data-reveal style="text-align:center">Core advisory areas</h2>
-        <p class="section-lead reveal reveal-delay-2" data-reveal style="text-align:center;max-width:42rem;margin-left:auto;margin-right:auto">
-          Each icon links to the matching section on the Services page.
-        </p>
-        <div class="icon-grid">
-          {services.map((s, i) => (
-            <a
-              class={`icon-item reveal ${i === 0 ? "" : i === 1 ? "reveal-delay-1" : i === 2 ? "reveal-delay-2" : i === 3 ? "reveal-delay-3" : ""}`}
-              data-reveal
-              href={"/services#" + s.id}
-              data-warp-link
-              aria-label={"Open service: " + s.title}
-            >
-              {s.id === "air-navigation-safety" && (
-                <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
-                  <path d="M24 6L10 14v10c0 8 5 13 14 17 9-4 14-9 14-17V14L24 6z" stroke="currentColor" stroke-width="2" />
-                  <path d="M18 22l4 4 8-8" stroke="currentColor" stroke-width="2" />
-                </svg>
-              )}
-              {s.id === "atm-assurance" && (
-                <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
-                  <circle cx="24" cy="24" r="14" stroke="currentColor" stroke-width="2" />
-                  <path d="M24 12v12l8 5" stroke="currentColor" stroke-width="2" />
-                  <circle cx="24" cy="24" r="2.2" fill="currentColor" />
-                </svg>
-              )}
-              {s.id === "safety-case-support" && (
-                <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
-                  <path d="M24 5L8 12v11c0 10 6.5 15.8 16 20 9.5-4.2 16-10 16-20V12L24 5z" stroke="currentColor" stroke-width="2" />
-                  <path d="M17 24l5 5 9-9" stroke="currentColor" stroke-width="2" />
-                </svg>
-              )}
-              {s.id === "operational-safety-reviews" && (
-                <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
-                  <path d="M8 36h32" stroke="currentColor" stroke-width="2" />
-                  <path d="M12 36V20l8-4 8 4v16" stroke="currentColor" stroke-width="2" />
-                  <path d="M28 36V22l8-3v17" stroke="currentColor" stroke-width="2" />
-                  <circle cx="24" cy="12" r="3" stroke="currentColor" stroke-width="2" />
-                </svg>
-              )}
-              {s.id === "risk-compliance-advisory" && (
-                <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
-                  <path d="M10 12h16v16H10zM22 20h16v16H22z" stroke="currentColor" stroke-width="2" />
-                  <path d="M16 28l3 3 5-5" stroke="currentColor" stroke-width="2" />
-                </svg>
-              )}
-              {s.id === "independent-review-advisory" && (
-                <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
-                  <path d="M12 14h24v22H12z" stroke="currentColor" stroke-width="2" />
-                  <path d="M18 22l4 4 10-10" stroke="currentColor" stroke-width="2" />
-                  <path d="M8 34h32" stroke="currentColor" stroke-width="2" opacity="0.5" />
-                </svg>
-              )}
-              <span>{s.shortLabel}</span>
+        <div class="section-intro-grid">
+          <div class="reveal">
+            <p class="eyebrow">Curated Destinations</p>
+            <h2 class="serif-title title-lg" id="destinations-heading">
+              Iconic Places.<br /><em>Untouched Beauty.</em>
+            </h2>
+            <p class="lead">
+              From polar wilderness to hidden shores, our itineraries take you beyond the ordinary.
+            </p>
+            <a class="text-link" href="/destinations">
+              Explore Destinations <span class="btn-arrow" aria-hidden="true">→</span>
             </a>
-          ))}
+          </div>
+          <div class="reveal reveal-delay-1" style="display:flex;justify-content:flex-end;align-items:flex-end">
+            <div class="scroller-controls">
+              <button class="scroller-btn" type="button" data-scroll-target="home-destinations" data-dir="-1" aria-label="Scroll destinations backwards">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+              </button>
+              <button class="scroller-btn" type="button" data-scroll-target="home-destinations" data-dir="1" aria-label="Scroll destinations forwards">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="card-scroller reveal reveal-delay-1" id="home-destinations">
+          {homeDestinations.map((d) => <DestinationCard destination={d} />)}
         </div>
       </div>
     </section>
 
-    <section class="dark-cta" id="expertise-cta">
-      <div class="dark-cta-bg" aria-hidden="true"></div>
-      <div class="dark-cta-inner reveal" data-reveal>
-        <h2>Need targeted support on a live safety challenge?</h2>
-        <p>
-          Connect for focused advisory input designed around ATM, air navigation, and high-assurance operational environments.
-        </p>
-        <a class="btn btn-primary btn-cta-blue" href="/contact">Connect with us <span aria-hidden="true">→</span></a>
-      </div>
-    </section>
+    <CurvedDivider from="navy" to="cream-2" />
 
-    <section class="section" id="clients">
+    <!-- 4. Featured voyages -->
+    <section class="section section-cream-2 on-cream" aria-labelledby="voyages-heading" style="padding-top:3.5rem">
       <div class="container">
-        <p class="page-kicker reveal" data-reveal>Trusted relationships</p>
-        <h2 class="section-title reveal reveal-delay-1" data-reveal style="text-align:center">Who we support</h2>
-      </div>
-      <div class="marquee-clients" aria-hidden="true">
-        <div class="marquee-track">
-          <span class="client-item">ANSP programme office</span>
-          <span class="client-item">Civil aviation authority</span>
-          <span class="client-item">Military ATM</span>
-          <span class="client-item">Airport operator</span>
-          <span class="client-item">Systems integrator</span>
-          <span class="client-item">Training academy</span>
-          <span class="client-item">ANSP programme office</span>
-          <span class="client-item">Civil aviation authority</span>
-          <span class="client-item">Military ATM</span>
-          <span class="client-item">Airport operator</span>
-          <span class="client-item">Systems integrator</span>
-          <span class="client-item">Training academy</span>
+        <div class="section-intro-grid" style="align-items:start">
+          <div class="reveal">
+            <p class="eyebrow">Featured Voyages</p>
+            <h2 class="serif-title title-lg" id="voyages-heading">
+              Handcrafted Itineraries.<br /><em>Unforgettable Moments.</em>
+            </h2>
+            <p class="lead">
+              Thoughtfully curated voyages with expert guides, small groups, and immersive experiences.
+            </p>
+            <a class="text-link on-cream-link" href="/expedition-cruises">
+              View All Itineraries <span class="btn-arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
+          <div class="reveal reveal-delay-1" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.4rem">
+            {featuredVoyages.map((it) => <ItineraryCard itinerary={it} compact />)}
+          </div>
+        </div>
+        <div class="custom-voyage-card reveal">
+          <img class="compass-accent" src="/assets/tideborne/decor/gold-compass-small.svg" alt="" width="46" height="46" />
+          <div>
+            <h3 class="serif-title title-md" style="margin-bottom:0.4rem;color:var(--tide-navy-900)">Custom Voyages</h3>
+            <p style="margin:0;color:rgba(4,30,45,0.68);font-size:0.94rem;max-width:36rem">
+              Have a destination in mind? Let us craft a journey tailored just for you — private charters,
+              extended expeditions, and one-of-a-kind routes.
+            </p>
+          </div>
+          <a class="btn btn-ghost-dark" href="/contact">
+            Learn More <span class="btn-arrow" aria-hidden="true">→</span>
+          </a>
         </div>
       </div>
     </section>
 
-    <section class="section section-muted" id="contact-preview">
-      <div class="container split">
-        <div>
-          <h2 class="section-title reveal" data-reveal>Discuss your assurance needs with the team</h2>
-          <p class="section-lead reveal reveal-delay-1" data-reveal>
-            We welcome enquiries from operators, airports, ANSPs, regulators, and delivery partners seeking independent advisory support.
-          </p>
-          <p class="reveal reveal-delay-2" data-reveal>
-            <a class="btn-pill-solid" href="/contact">Go to contact page <span aria-hidden="true">→</span></a>
-          </p>
+    <!-- 5. Why travel with Tideborne -->
+    <section class="section section-cream on-cream" aria-labelledby="why-heading">
+      <div class="container">
+        <div class="section-intro-grid" style="align-items:start">
+          <div class="reveal">
+            <p class="eyebrow">Why Travel With Tideborne</p>
+            <h2 class="serif-title title-lg" id="why-heading">
+              More Than a Cruise.<br /><em>A Deeper Connection.</em>
+            </h2>
+            <p class="lead">
+              Every detail is designed to bring you closer to the world — and to what matters most.
+            </p>
+            <a class="text-link on-cream-link" href="/experience">
+              Our Difference <span class="btn-arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
+          <div class="feature-icon-row reveal reveal-delay-1">
+            {
+              whyItems.map((item) => (
+                <div class="feature-icon">
+                  <span class="feature-icon-circle">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={item.icon} />
+                  </span>
+                  <h3 class="feature-icon-title">{item.title}</h3>
+                  <p class="feature-icon-text">{item.text}</p>
+                </div>
+              ))
+            }
+          </div>
         </div>
-        <form class="contact-form reveal reveal-delay-2" data-reveal action="#" method="post">
-          <label>Name<input type="text" name="name" required autocomplete="name" /></label>
-          <label>Work email<input type="email" name="email" required autocomplete="email" /></label>
-          <label>Organisation<input type="text" name="org" autocomplete="organization" /></label>
-          <label>Message<textarea name="message" required placeholder="How can we help?"></textarea></label>
-          <button class="btn btn-primary" type="submit">Send message</button>
-          <p class="form-note">Demo form for now — Supabase integration can be added next.</p>
-        </form>
       </div>
     </section>
+
+    <!-- 6. Guest stories / responsible travel split -->
+    <section class="story-split" aria-label="Guest stories and responsible travel">
+      <div class="story-panel story-panel-dark on-dark reveal">
+        <p class="eyebrow">Guest Stories</p>
+        <h2 class="serif-title title-md on-dark">
+          Trusted by Explorers.<br /><em>Loved by Guests.</em>
+        </h2>
+        <div id="testimonial-rotor">
+          {
+            testimonials.map((t, i) => (
+              <blockquote class:list={["testimonial-slide", { "is-active": i === 0 }]} data-index={String(i)}>
+                <span class="testimonial-quote-mark" aria-hidden="true">“</span>
+                <p class="testimonial-text">{t.text}</p>
+                <div class="testimonial-stars" aria-label="Five star review">★★★★★</div>
+                <p class="testimonial-author">— {t.author}<span>{t.detail}</span></p>
+              </blockquote>
+            ))
+          }
+        </div>
+        <div class="testimonial-controls">
+          <button class="scroller-btn" type="button" data-testimonial-dir="-1" aria-label="Previous guest story">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <div class="testimonial-dots" role="presentation">
+            {testimonials.map((_, i) => (
+              <button type="button" class:list={[{ "is-active": i === 0 }]} data-testimonial-dot={String(i)} aria-label={`Show guest story ${i + 1}`}></button>
+            ))}
+          </div>
+          <button class="scroller-btn" type="button" data-testimonial-dir="1" aria-label="Next guest story">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="story-image">
+        <img
+          src="/assets/tideborne/about/zodiac-whale-glacier.jpg"
+          alt="Guests in a Zodiac watching a whale surface near a glacier"
+          loading="lazy"
+          width="900"
+          height="700"
+        />
+      </div>
+      <div class="story-panel story-panel-cream on-cream reveal">
+        <p class="eyebrow">Travel Responsibly</p>
+        <h2 class="serif-title title-md on-cream">
+          Protecting Places.<br /><em>Preserving Wonder.</em>
+        </h2>
+        <p class="lead" style="margin-bottom:1.4rem">
+          We are committed to sustainable travel and supporting the communities and environments we explore.
+        </p>
+        <a class="text-link on-cream-link" href="/about#sustainability">
+          Our Commitment <span class="btn-arrow" aria-hidden="true">→</span>
+        </a>
+        <div class="story-partners" aria-label="Conservation partners">
+          <span>Sustainable Tourism Partner</span>
+          <span>1% For the Planet</span>
+          <span>AECO Member</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. CTA -->
+    <CTASection
+      image="/assets/tideborne/backgrounds/footer-cta-ship-mountains.jpg"
+      title="Your Next Extraordinary Journey Awaits."
+      text="Let our Voyage Specialists help you find the perfect expedition."
+    >
+      <Fragment slot="actions">
+        <a class="btn btn-gold" href="/contact">Request a Brochure</a>
+        <a class="btn btn-ghost-light" href="/contact">Contact a Specialist</a>
+      </Fragment>
+    </CTASection>
   </main>
 </BaseLayout>
+
+<style>
+  .custom-voyage-card {
+    margin-top: 2.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.75rem;
+    flex-wrap: wrap;
+    background: var(--tide-cream);
+    border: 1px solid rgba(201, 154, 72, 0.4);
+    border-radius: 14px;
+    padding: 1.75rem 2rem;
+  }
+  .custom-voyage-card > div { flex: 1 1 320px; }
+
+  .story-split {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr 1.1fr;
+    background: var(--tide-navy-900);
+  }
+  .story-panel { padding: 4rem 3rem; display: flex; flex-direction: column; justify-content: center; }
+  .story-panel-dark { background: var(--tide-navy-900); }
+  .story-panel-cream { background: var(--tide-cream); }
+  .story-image { position: relative; min-height: 360px; }
+  .story-image img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+
+  .testimonial-slide { display: none; margin: 0; }
+  .testimonial-slide.is-active { display: block; animation: tideFadeUp 0.55s var(--ease); }
+  .testimonial-controls { display: flex; align-items: center; gap: 1.1rem; margin-top: 1.6rem; }
+  .testimonial-dots { display: flex; gap: 0.45rem; }
+  .testimonial-dots button {
+    width: 8px; height: 8px; border-radius: 50%; border: 0; padding: 0;
+    background: rgba(244, 239, 228, 0.3); cursor: pointer; transition: background 0.25s;
+  }
+  .testimonial-dots button.is-active { background: var(--tide-gold); }
+
+  .story-partners {
+    display: flex; flex-wrap: wrap; gap: 0.6rem 1.5rem; margin-top: 2.25rem;
+    padding-top: 1.5rem; border-top: 1px solid rgba(4, 30, 45, 0.14);
+  }
+  .story-partners span {
+    font-size: 0.64rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase;
+    color: rgba(4, 30, 45, 0.55);
+  }
+
+  @media (max-width: 1080px) {
+    .story-split { grid-template-columns: 1fr 1fr; }
+    .story-image { grid-column: 1 / -1; order: -1; min-height: 300px; }
+  }
+  @media (max-width: 720px) {
+    .story-split { grid-template-columns: 1fr; }
+    .story-panel { padding: 3rem 1.5rem; }
+  }
+</style>
+
+<script>
+  // Destination card scroller arrows
+  document.querySelectorAll<HTMLButtonElement>("[data-scroll-target]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const target = document.getElementById(btn.dataset.scrollTarget || "");
+      if (!target) return;
+      const card = target.firstElementChild as HTMLElement | null;
+      const step = card ? card.offsetWidth + 22 : 300;
+      target.scrollBy({ left: step * Number(btn.dataset.dir || 1), behavior: "smooth" });
+    });
+  });
+
+  // Testimonial rotor
+  const slides = Array.from(document.querySelectorAll<HTMLElement>(".testimonial-slide"));
+  const dots = Array.from(document.querySelectorAll<HTMLButtonElement>("[data-testimonial-dot]"));
+  let current = 0;
+  function showTestimonial(index: number) {
+    current = (index + slides.length) % slides.length;
+    slides.forEach((s, i) => s.classList.toggle("is-active", i === current));
+    dots.forEach((d, i) => d.classList.toggle("is-active", i === current));
+  }
+  document.querySelectorAll<HTMLButtonElement>("[data-testimonial-dir]").forEach((btn) => {
+    btn.addEventListener("click", () => showTestimonial(current + Number(btn.dataset.testimonialDir)));
+  });
+  dots.forEach((dot) => {
+    dot.addEventListener("click", () => showTestimonial(Number(dot.dataset.testimonialDot)));
+  });
+  if (slides.length > 1) {
+    setInterval(() => showTestimonial(current + 1), 9000);
+  }
+</script>

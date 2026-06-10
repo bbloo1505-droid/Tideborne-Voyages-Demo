@@ -1,0 +1,45 @@
+---
+/**
+ * Cinematic page hero with background image, navy gradient overlay,
+ * and a cream wave divider at the bottom.
+ * Slots: `default` for the heading markup, `actions` for buttons.
+ */
+interface Props {
+  image: string;
+  eyebrow?: string;
+  lead?: string;
+  short?: boolean;
+  waveColor?: "cream" | "cream-2" | "navy" | "navy-deep";
+}
+
+const colors: Record<string, string> = {
+  cream: "#F4EFE4",
+  "cream-2": "#FBF7EF",
+  navy: "#041E2D",
+  "navy-deep": "#031723",
+};
+
+const { image, eyebrow, lead, short = false, waveColor = "cream" } = Astro.props;
+---
+
+<section class:list={["hero", { "hero-short": short }]}>
+  <div class="hero-bg" style={`background-image:url('${image}')`} role="img" aria-hidden="true"></div>
+  <div class="hero-overlay" aria-hidden="true"></div>
+  <div class="hero-content">
+    {eyebrow && <p class="eyebrow tide-fade-up">{eyebrow}</p>}
+    <h1 class="serif-title title-xl tide-fade-up tide-delay-1">
+      <slot />
+    </h1>
+    {lead && <p class="lead tide-fade-up tide-delay-2">{lead}</p>}
+    <div class="hero-actions tide-fade-up tide-delay-3">
+      <slot name="actions" />
+    </div>
+  </div>
+  <div class="hero-wave" aria-hidden="true">
+    <svg viewBox="0 0 1600 180" preserveAspectRatio="none">
+      <path
+        d="M0 74C190 130 370 120 560 82C760 42 890 14 1070 70C1250 126 1420 126 1600 68V180H0V74Z"
+        fill={colors[waveColor]}></path>
+    </svg>
+  </div>
+</section>

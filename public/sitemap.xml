@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://aerosureadvisory.example.com/</loc></url>
-  <url><loc>https://aerosureadvisory.example.com/about</loc></url>
-  <url><loc>https://aerosureadvisory.example.com/services</loc></url>
-  <url><loc>https://aerosureadvisory.example.com/projects</loc></url>
-  <url><loc>https://aerosureadvisory.example.com/contact</loc></url>
-  <url><loc>https://aerosureadvisory.example.com/privacy</loc></url>
+  <url><loc>https://tidebornevoyages.example.com/</loc></url>
+  <url><loc>https://tidebornevoyages.example.com/destinations</loc></url>
+  <url><loc>https://tidebornevoyages.example.com/expedition-cruises</loc></url>
+  <url><loc>https://tidebornevoyages.example.com/our-ships</loc></url>
+  <url><loc>https://tidebornevoyages.example.com/experience</loc></url>
+  <url><loc>https://tidebornevoyages.example.com/about</loc></url>
+  <url><loc>https://tidebornevoyages.example.com/contact</loc></url>
 </urlset>

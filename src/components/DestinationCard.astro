@@ -1,0 +1,52 @@
+---
+import type { Destination } from "../data/site.ts";
+
+interface Props {
+  destination: Destination;
+  detailed?: boolean;
+}
+
+const { destination: d, detailed = false } = Astro.props;
+---
+
+<a
+  class="destination-card"
+  href="/expedition-cruises"
+  data-filters={d.filters.join(" ")}
+  aria-label={`${d.name} — ${d.title}. View expedition cruises.`}
+>
+  <div class="destination-card-media">
+    <img
+      src={detailed ? d.largeImage : d.cardImage}
+      alt={`${d.name} — ${d.title}`}
+      loading="lazy"
+      width="640"
+      height="520"
+    />
+  </div>
+  <div class="destination-card-body">
+    <span class="destination-tag">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      {d.name}
+    </span>
+    <h3 class="destination-card-title">{d.title}</h3>
+  </div>
+  {
+    detailed && (
+      <div class="destination-card-detail">
+        <div class="destination-detail-row">
+          <span class="destination-detail-label">Best Time to Travel</span>
+          <span class="destination-detail-value">{d.bestTime}</span>
+        </div>
+        <div class="destination-detail-row">
+          <span class="destination-detail-label">Expedition Style</span>
+          <span class="destination-detail-value">{d.style}</span>
+        </div>
+        <div class="destination-detail-row">
+          <span class="destination-detail-label">Wildlife Highlights</span>
+          <span class="destination-detail-value">{d.wildlife}</span>
+        </div>
+      </div>
+    )
+  }
+</a>

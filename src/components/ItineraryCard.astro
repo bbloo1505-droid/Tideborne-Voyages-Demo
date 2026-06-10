@@ -1,0 +1,57 @@
+---
+import type { Itinerary } from "../data/site.ts";
+
+interface Props {
+  itinerary: Itinerary;
+  compact?: boolean;
+}
+
+const { itinerary: it, compact = false } = Astro.props;
+---
+
+<article
+  class="itinerary-card"
+  data-destination={it.destination}
+  data-season={it.season}
+  data-style={it.style}
+  data-days={String(it.days)}
+>
+  <div class="itinerary-card-media">
+    <img
+      src={it.image}
+      alt={`${it.name} — ${it.subtitle}`}
+      loading="lazy"
+      width="640"
+      height="380"
+    />
+    <span class="itinerary-days">{it.days} Days</span>
+    <button class="itinerary-fav" type="button" aria-label={`Save ${it.name} to favourites`} aria-pressed="false">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+    </button>
+    <span class="itinerary-dest-tag">{it.destination}</span>
+  </div>
+  <div class="itinerary-card-body">
+    <h3 class="itinerary-card-title">{it.name}</h3>
+    <p class="itinerary-card-subtitle">{it.subtitle}</p>
+    <div class="itinerary-meta">
+      <span>{it.dates}</span>
+      <span class="itinerary-price">From {it.price} pp</span>
+    </div>
+    {!compact && <p class="itinerary-desc">{it.description}</p>}
+    <a class="text-link on-cream-link" href="/contact" aria-label={`View the ${it.name} itinerary`}>
+      View Itinerary <span class="btn-arrow" aria-hidden="true">→</span>
+    </a>
+  </div>
+</article>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>(".itinerary-fav").forEach((btn) => {
+    if (btn.dataset.bound) return;
+    btn.dataset.bound = "1";
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      const active = btn.classList.toggle("is-active");
+      btn.setAttribute("aria-pressed", active ? "true" : "false");
+    });
+  });
+</script>

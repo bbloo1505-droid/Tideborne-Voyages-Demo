@@ -1,0 +1,208 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import HeroSection from "../components/HeroSection.astro";
+import CurvedDivider from "../components/CurvedDivider.astro";
+import TrustStrip from "../components/TrustStrip.astro";
+import ItineraryCard from "../components/ItineraryCard.astro";
+import { itineraries } from "../data/site.ts";
+
+const destinationOptions = [...new Set(itineraries.map((it) => it.destination))];
+const seasonOptions = [...new Set(itineraries.map((it) => it.season))];
+const styleOptions = [...new Set(itineraries.map((it) => it.style))];
+---
+
+<BaseLayout
+  title="Expedition Cruises | Tideborne Voyages"
+  description="Curated itineraries, extraordinary adventures. Browse small-ship expedition cruises to Antarctica, Iceland, the Galápagos, Norway, Svalbard, Greenland and beyond."
+>
+  <main id="main">
+    <HeroSection
+      image="/assets/tideborne/backgrounds/expedition-cruises-hero-zodiac.jpg"
+      eyebrow="Expedition Cruises"
+      lead="Every Tideborne Voyage is purposefully crafted to reveal the world's most remote places with expert guides, small ships, and refined comfort."
+      short
+      waveColor="cream-2"
+    >
+      Curated Itineraries.<br /><em>Extraordinary Adventures.</em>
+    </HeroSection>
+
+    <section class="section section-cream-2 on-cream" style="padding-top:1.5rem" aria-labelledby="itineraries-heading">
+      <div class="container">
+        <h2 class="sr-only" id="itineraries-heading">Browse expedition itineraries</h2>
+
+        <!-- Filter bar -->
+        <div class="filter-bar reveal" role="group" aria-label="Filter itineraries">
+          <div class="filter-control">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <div>
+              <label for="filter-destination">Destination</label>
+              <select id="filter-destination" data-filter="destination">
+                <option value="all">All Destinations</option>
+                {destinationOptions.map((d) => <option value={d}>{d}</option>)}
+              </select>
+            </div>
+          </div>
+          <div class="filter-control">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <div>
+              <label for="filter-duration">Duration</label>
+              <select id="filter-duration" data-filter="duration">
+                <option value="all">Any Duration</option>
+                <option value="short">Up to 9 days</option>
+                <option value="medium">10 – 12 days</option>
+                <option value="long">13+ days</option>
+              </select>
+            </div>
+          </div>
+          <div class="filter-control">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="2" x2="12" y2="22"/><path d="M4.93 4.93l14.14 14.14M19.07 4.93 4.93 19.07M2 12h20"/></svg>
+            <div>
+              <label for="filter-season">Season</label>
+              <select id="filter-season" data-filter="season">
+                <option value="all">Any Season</option>
+                {seasonOptions.map((s) => <option value={s}>{s}</option>)}
+              </select>
+            </div>
+          </div>
+          <div class="filter-control">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+            <div>
+              <label for="filter-style">Style</label>
+              <select id="filter-style" data-filter="style">
+                <option value="all">Any Style</option>
+                {styleOptions.map((s) => <option value={s}>{s}</option>)}
+              </select>
+            </div>
+          </div>
+          <div class="filter-meta">
+            <span id="itinerary-count" aria-live="polite">{itineraries.length} Itineraries Found</span>
+            <button class="filter-clear" type="button" id="filter-clear">Clear All</button>
+          </div>
+        </div>
+
+        <!-- View toggle -->
+        <div class="view-row reveal">
+          <div class="view-toggle" role="group" aria-label="View mode">
+            <button type="button" class="is-active" data-view="grid" aria-pressed="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+              Grid
+            </button>
+            <button type="button" data-view="map" aria-pressed="false">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>
+              Map
+            </button>
+          </div>
+        </div>
+
+        <!-- Itinerary grid -->
+        <div class="itinerary-grid" id="itinerary-grid">
+          {itineraries.map((it) => <ItineraryCard itinerary={it} />)}
+        </div>
+        <p class="no-results" id="itinerary-empty" hidden>
+          No voyages match those filters. Clear a filter or two — or
+          <a href="/contact" style="color:#9a7426">ask a specialist</a> about custom departures.
+        </p>
+
+        <!-- Map view placeholder -->
+        <div class="map-placeholder" id="map-view" hidden>
+          <div class="map-placeholder-inner">
+            <img src="/assets/tideborne/decor/gold-compass-small.svg" alt="" width="58" height="58" />
+            <h3>Interactive Voyage Map</h3>
+            <p>
+              Chart every Tideborne expedition across the globe — from the Antarctic Peninsula to the
+              High Arctic. The interactive map is coming soon to this demo.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <CurvedDivider from="cream-2" to="navy" flip />
+
+    <!-- CTA -->
+    <section class="section section-navy on-dark" style="padding:3.5rem 0">
+      <div class="container cruise-cta reveal">
+        <div>
+          <h2 class="serif-title title-md on-dark" style="margin-bottom:0.3rem">
+            Can't find the perfect voyage?
+          </h2>
+          <p style="margin:0;color:rgba(244,239,228,0.7)">
+            We craft custom expeditions and private charters for travellers with a destination in mind.
+          </p>
+        </div>
+        <a class="btn btn-gold" href="/contact">
+          Plan a Custom Voyage <span class="btn-arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </section>
+
+    <TrustStrip />
+  </main>
+</BaseLayout>
+
+<style>
+  .view-row { display: flex; justify-content: flex-end; margin: 1.6rem 0 1.4rem; }
+  .itinerary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(255px, 1fr));
+    gap: 1.5rem;
+  }
+  .itinerary-grid[hidden], .map-placeholder[hidden] { display: none !important; }
+  .no-results { margin: 2.5rem 0; font-size: 0.95rem; color: rgba(4, 30, 45, 0.6); }
+  .cruise-cta { display: flex; align-items: center; justify-content: space-between; gap: 1.75rem; flex-wrap: wrap; }
+</style>
+
+<script>
+  const selects = Array.from(document.querySelectorAll<HTMLSelectElement>("[data-filter]"));
+  const cards = Array.from(document.querySelectorAll<HTMLElement>("#itinerary-grid .itinerary-card"));
+  const count = document.getElementById("itinerary-count");
+  const empty = document.getElementById("itinerary-empty");
+  const clearBtn = document.getElementById("filter-clear");
+
+  function durationBucket(days: number): string {
+    if (days <= 9) return "short";
+    if (days <= 12) return "medium";
+    return "long";
+  }
+
+  function applyFilters() {
+    const active: Record<string, string> = {};
+    selects.forEach((s) => (active[s.dataset.filter || ""] = s.value));
+    let visible = 0;
+    cards.forEach((card) => {
+      const matches =
+        (active.destination === "all" || card.dataset.destination === active.destination) &&
+        (active.season === "all" || card.dataset.season === active.season) &&
+        (active.style === "all" || card.dataset.style === active.style) &&
+        (active.duration === "all" || durationBucket(Number(card.dataset.days)) === active.duration);
+      card.style.display = matches ? "" : "none";
+      if (matches) visible++;
+    });
+    if (count) count.textContent = `${visible} ${visible === 1 ? "Itinerary" : "Itineraries"} Found`;
+    if (empty) empty.hidden = visible > 0;
+  }
+
+  selects.forEach((s) => s.addEventListener("change", applyFilters));
+  clearBtn?.addEventListener("click", () => {
+    selects.forEach((s) => (s.value = "all"));
+    applyFilters();
+  });
+
+  // Grid / Map view toggle
+  const viewButtons = Array.from(document.querySelectorAll<HTMLButtonElement>("[data-view]"));
+  const grid = document.getElementById("itinerary-grid");
+  const mapView = document.getElementById("map-view");
+  viewButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const isMap = btn.dataset.view === "map";
+      viewButtons.forEach((b) => {
+        b.classList.toggle("is-active", b === btn);
+        b.setAttribute("aria-pressed", b === btn ? "true" : "false");
+      });
+      if (grid) grid.hidden = isMap;
+      if (mapView) mapView.hidden = !isMap;
+      if (empty && isMap) empty.hidden = true;
+      if (!isMap) applyFilters();
+    });
+  });
+</script>

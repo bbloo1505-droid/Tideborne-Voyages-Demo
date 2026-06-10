@@ -1,0 +1,502 @@
+{
+  "project": "Tideborne Voyages demo website asset pack",
+  "intended_copy_path": "public/assets/tideborne",
+  "brand": {
+    "name": "Tideborne Voyages",
+    "style": "luxury expedition cruise / boutique travel, deep navy, cream waves, gold accents, serif editorial typography",
+    "colors": [
+      "#031723",
+      "#041E2D",
+      "#F4EFE4",
+      "#C99A48",
+      "#7CA7AA"
+    ]
+  },
+  "assets": [
+    {
+      "path": "public/assets/tideborne/backgrounds/home-hero-ship-polar.jpg",
+      "source_reference": "luxury_expedition_voyages_homepage_design.png",
+      "crop_box": [
+        430,
+        55,
+        1448,
+        560
+      ],
+      "description": "Home hero polar ship background"
+    },
+    {
+      "path": "public/assets/tideborne/backgrounds/destinations-hero-zodiac-antarctica.jpg",
+      "source_reference": "exploring_luxury_with_tideborne_voyages.png",
+      "crop_box": [
+        430,
+        80,
+        1448,
+        360
+      ],
+      "description": "Destinations page hero background"
+    },
+    {
+      "path": "public/assets/tideborne/backgrounds/expedition-cruises-hero-zodiac.jpg",
+      "source_reference": "luxury_expedition_cruise_itineraries.png",
+      "crop_box": [
+        390,
+        70,
+        1448,
+        330
+      ],
+      "description": "Expedition cruises hero background"
+    },
+    {
+      "path": "public/assets/tideborne/backgrounds/ships-hero-ship-exterior.jpg",
+      "source_reference": "luxury_expedition_cruise_website_design.png",
+      "crop_box": [
+        520,
+        70,
+        1448,
+        360
+      ],
+      "description": "Ships page hero ship background"
+    },
+    {
+      "path": "public/assets/tideborne/backgrounds/about-hero-ship.jpg",
+      "source_reference": "luxury_expedition_cruises_website_design.png",
+      "crop_box": [
+        540,
+        70,
+        1448,
+        320
+      ],
+      "description": "About page hero background"
+    },
+    {
+      "path": "public/assets/tideborne/backgrounds/contact-hero-ship.jpg",
+      "source_reference": "planning_your_next_journey_online.png",
+      "crop_box": [
+        500,
+        80,
+        1448,
+        385
+      ],
+      "description": "Contact page hero background"
+    },
+    {
+      "path": "public/assets/tideborne/backgrounds/footer-cta-ship-mountains.jpg",
+      "source_reference": "luxury_cruise_itineraries_on_tideborne_voyages.png",
+      "crop_box": [
+        0,
+        760,
+        1448,
+        870
+      ],
+      "description": "Footer CTA background"
+    },
+    {
+      "path": "public/assets/tideborne/backgrounds/contact-penguin-landscape.jpg",
+      "source_reference": "planning_your_next_journey_online.png",
+      "crop_box": [
+        760,
+        430,
+        1448,
+        725
+      ],
+      "description": "Contact page penguin landscape panel"
+    },
+    {
+      "path": "public/assets/tideborne/backgrounds/footer-whale-ocean.jpg",
+      "source_reference": "seamless_luxury_voyage_planning_experience.png",
+      "crop_box": [
+        0,
+        0,
+        1448,
+        425
+      ],
+      "description": "Whale CTA background"
+    },
+    {
+      "path": "public/assets/tideborne/destinations/antarctica-card-photo.jpg",
+      "source_reference": "luxury_expedition_voyages_homepage_design.png",
+      "crop_box": [
+        410,
+        745,
+        632,
+        920
+      ],
+      "description": "Antarctica card photo"
+    },
+    {
+      "path": "public/assets/tideborne/destinations/iceland-card-photo.jpg",
+      "source_reference": "luxury_expedition_voyages_homepage_design.png",
+      "crop_box": [
+        646,
+        745,
+        870,
+        920
+      ],
+      "description": "Iceland card photo"
+    },
+    {
+      "path": "public/assets/tideborne/destinations/galapagos-card-photo.jpg",
+      "source_reference": "luxury_expedition_voyages_homepage_design.png",
+      "crop_box": [
+        884,
+        745,
+        1108,
+        920
+      ],
+      "description": "Galapagos card photo"
+    },
+    {
+      "path": "public/assets/tideborne/destinations/norway-card-photo.jpg",
+      "source_reference": "luxury_expedition_voyages_homepage_design.png",
+      "crop_box": [
+        1122,
+        745,
+        1344,
+        920
+      ],
+      "description": "Norway card photo"
+    },
+    {
+      "path": "public/assets/tideborne/destinations/antarctica-large-card.jpg",
+      "source_reference": "exploring_luxury_with_tideborne_voyages.png",
+      "crop_box": [
+        58,
+        550,
+        304,
+        782
+      ],
+      "description": "Antarctica destination card full"
+    },
+    {
+      "path": "public/assets/tideborne/destinations/iceland-large-card.jpg",
+      "source_reference": "exploring_luxury_with_tideborne_voyages.png",
+      "crop_box": [
+        322,
+        550,
+        570,
+        782
+      ],
+      "description": "Iceland destination card full"
+    },
+    {
+      "path": "public/assets/tideborne/destinations/galapagos-large-card.jpg",
+      "source_reference": "exploring_luxury_with_tideborne_voyages.png",
+      "crop_box": [
+        590,
+        550,
+        840,
+        782
+      ],
+      "description": "Galapagos destination card full"
+    },
+    {
+      "path": "public/assets/tideborne/destinations/norway-large-card.jpg",
+      "source_reference": "exploring_luxury_with_tideborne_voyages.png",
+      "crop_box": [
+        860,
+        550,
+        1108,
+        782
+      ],
+      "description": "Norway destination card full"
+    },
+    {
+      "path": "public/assets/tideborne/destinations/arctic-svalbard-large-card.jpg",
+      "source_reference": "exploring_luxury_with_tideborne_voyages.png",
+      "crop_box": [
+        1128,
+        550,
+        1376,
+        782
+      ],
+      "description": "Arctic Svalbard destination card full"
+    },
+    {
+      "path": "public/assets/tideborne/itineraries/antarctica-explorer.jpg",
+      "source_reference": "luxury_expedition_cruise_itineraries.png",
+      "crop_box": [
+        75,
+        410,
+        388,
+        560
+      ],
+      "description": "Antarctica Explorer itinerary image"
+    },
+    {
+      "path": "public/assets/tideborne/itineraries/iceland-circumnavigation.jpg",
+      "source_reference": "luxury_expedition_cruise_itineraries.png",
+      "crop_box": [
+        410,
+        410,
+        700,
+        560
+      ],
+      "description": "Iceland Circumnavigation itinerary image"
+    },
+    {
+      "path": "public/assets/tideborne/itineraries/galapagos-adventure.jpg",
+      "source_reference": "luxury_expedition_cruise_itineraries.png",
+      "crop_box": [
+        725,
+        410,
+        1000,
+        560
+      ],
+      "description": "Galapagos Adventure itinerary image"
+    },
+    {
+      "path": "public/assets/tideborne/itineraries/norway-fjords.jpg",
+      "source_reference": "luxury_expedition_cruise_itineraries.png",
+      "crop_box": [
+        1020,
+        410,
+        1305,
+        560
+      ],
+      "description": "Norway itinerary image"
+    },
+    {
+      "path": "public/assets/tideborne/itineraries/svalbard-expedition.jpg",
+      "source_reference": "luxury_expedition_cruise_itineraries.png",
+      "crop_box": [
+        75,
+        700,
+        388,
+        850
+      ],
+      "description": "Svalbard Expedition itinerary image"
+    },
+    {
+      "path": "public/assets/tideborne/itineraries/raja-ampat-discovery.jpg",
+      "source_reference": "luxury_expedition_cruise_itineraries.png",
+      "crop_box": [
+        410,
+        700,
+        700,
+        850
+      ],
+      "description": "Raja Ampat Discovery itinerary image"
+    },
+    {
+      "path": "public/assets/tideborne/itineraries/hebrides-highlands.jpg",
+      "source_reference": "luxury_expedition_cruise_itineraries.png",
+      "crop_box": [
+        725,
+        700,
+        1000,
+        850
+      ],
+      "description": "Hebrides and Highlands itinerary image"
+    },
+    {
+      "path": "public/assets/tideborne/itineraries/greenland-explorer.jpg",
+      "source_reference": "luxury_expedition_cruise_itineraries.png",
+      "crop_box": [
+        1020,
+        700,
+        1305,
+        850
+      ],
+      "description": "Greenland Explorer itinerary image"
+    },
+    {
+      "path": "public/assets/tideborne/ships/flagship-observation-lounge.jpg",
+      "source_reference": "luxury_expedition_cruise_website_design.png",
+      "crop_box": [
+        690,
+        355,
+        1448,
+        600
+      ],
+      "description": "Flagship observation lounge interior"
+    },
+    {
+      "path": "public/assets/tideborne/ships/tideborne-pursuit-card.jpg",
+      "source_reference": "luxury_expedition_cruise_website_design.png",
+      "crop_box": [
+        60,
+        635,
+        235,
+        745
+      ],
+      "description": "Tideborne Pursuit card image"
+    },
+    {
+      "path": "public/assets/tideborne/ships/tideborne-horizon-card.jpg",
+      "source_reference": "luxury_expedition_cruise_website_design.png",
+      "crop_box": [
+        415,
+        635,
+        580,
+        745
+      ],
+      "description": "Tideborne Horizon card image"
+    },
+    {
+      "path": "public/assets/tideborne/ships/tideborne-venture-card.jpg",
+      "source_reference": "luxury_expedition_cruise_website_design.png",
+      "crop_box": [
+        743,
+        635,
+        904,
+        745
+      ],
+      "description": "Tideborne Venture card image"
+    },
+    {
+      "path": "public/assets/tideborne/ships/lounge-gallery.jpg",
+      "source_reference": "luxury_expedition_cruise_website_design.png",
+      "crop_box": [
+        5,
+        870,
+        345,
+        990
+      ],
+      "description": "Lounge gallery crop"
+    },
+    {
+      "path": "public/assets/tideborne/ships/dining-gallery.jpg",
+      "source_reference": "luxury_expedition_cruise_website_design.png",
+      "crop_box": [
+        350,
+        870,
+        690,
+        990
+      ],
+      "description": "Dining gallery crop"
+    },
+    {
+      "path": "public/assets/tideborne/ships/suite-gallery.jpg",
+      "source_reference": "luxury_expedition_cruise_website_design.png",
+      "crop_box": [
+        690,
+        870,
+        1030,
+        990
+      ],
+      "description": "Suite gallery crop"
+    },
+    {
+      "path": "public/assets/tideborne/ships/deck-pool-gallery.jpg",
+      "source_reference": "luxury_expedition_cruise_website_design.png",
+      "crop_box": [
+        1030,
+        870,
+        1448,
+        990
+      ],
+      "description": "Deck and pool gallery crop"
+    },
+    {
+      "path": "public/assets/tideborne/about/founder-expedition-director.jpg",
+      "source_reference": "luxury_expedition_cruises_website_design.png",
+      "crop_box": [
+        300,
+        350,
+        635,
+        615
+      ],
+      "description": "Founder/director image crop"
+    },
+    {
+      "path": "public/assets/tideborne/about/zodiac-whale-glacier.jpg",
+      "source_reference": "luxury_expedition_cruises_website_design.png",
+      "crop_box": [
+        915,
+        350,
+        1448,
+        615
+      ],
+      "description": "Zodiac and whale glacier image"
+    },
+    {
+      "path": "public/assets/tideborne/about/guide-elias-morgan.jpg",
+      "source_reference": "luxury_expedition_cruises_website_design.png",
+      "crop_box": [
+        450,
+        650,
+        630,
+        780
+      ],
+      "description": "Guide card 1"
+    },
+    {
+      "path": "public/assets/tideborne/about/guide-sofia-alvarez.jpg",
+      "source_reference": "luxury_expedition_cruises_website_design.png",
+      "crop_box": [
+        650,
+        650,
+        832,
+        780
+      ],
+      "description": "Guide card 2"
+    },
+    {
+      "path": "public/assets/tideborne/about/guide-liam-oconnell.jpg",
+      "source_reference": "luxury_expedition_cruises_website_design.png",
+      "crop_box": [
+        846,
+        650,
+        1030,
+        780
+      ],
+      "description": "Guide card 3"
+    },
+    {
+      "path": "public/assets/tideborne/about/guide-maya-chen.jpg",
+      "source_reference": "luxury_expedition_cruises_website_design.png",
+      "crop_box": [
+        1045,
+        650,
+        1230,
+        780
+      ],
+      "description": "Guide card 4"
+    },
+    {
+      "path": "public/assets/tideborne/contact/specialist-emily-carter.jpg",
+      "source_reference": "planning_your_next_journey_online.png",
+      "crop_box": [
+        815,
+        760,
+        895,
+        845
+      ],
+      "description": "Specialist Emily image"
+    },
+    {
+      "path": "public/assets/tideborne/contact/specialist-lucas-meyer.jpg",
+      "source_reference": "planning_your_next_journey_online.png",
+      "crop_box": [
+        1055,
+        760,
+        1135,
+        845
+      ],
+      "description": "Specialist Lucas image"
+    },
+    {
+      "path": "public/assets/tideborne/contact/specialist-sofia-alvarez.jpg",
+      "source_reference": "planning_your_next_journey_online.png",
+      "crop_box": [
+        1290,
+        760,
+        1375,
+        845
+      ],
+      "description": "Specialist Sofia image"
+    }
+  ],
+  "reference_images": [
+    "01-home-homepage-top-reference.png",
+    "02-home-homepage-lower-reference.png",
+    "03-destinations-page-reference.png",
+    "04-expedition-cruises-page-reference.png",
+    "05-our-ships-page-reference.png",
+    "06-about-page-reference.png",
+    "07-contact-page-reference.png",
+    "08-footer-contact-reference.png",
+    "09-original-full-page-reference.png"
+  ],
+  "important_note": "These assets are derived from the generated reference mockups. Cursor should use the full-page and section references for layout replication, and the cropped files for reusable images. Build actual HTML/CSS components rather than placing full screenshots as static images."
+}

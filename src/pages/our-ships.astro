@@ -1,0 +1,177 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import HeroSection from "../components/HeroSection.astro";
+import CurvedDivider from "../components/CurvedDivider.astro";
+import TrustStrip from "../components/TrustStrip.astro";
+import ShipCard from "../components/ShipCard.astro";
+import { fleet } from "../data/site.ts";
+
+const flagshipStats = [
+  { label: "Guests", value: "120" },
+  { label: "Length", value: "104m / 341ft" },
+  { label: "Built", value: "2023" },
+  { label: "Ice Class", value: "PC6" },
+  { label: "Crew", value: "90" },
+  { label: "Zodiacs", value: "12" },
+];
+
+const amenities = [
+  {
+    title: "Expansive Observation",
+    text: "Panoramic lounges and open decks bring the outside in.",
+    icon: `<circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/>`,
+  },
+  {
+    title: "Expert-Led Experiences",
+    text: "Onboard experts and naturalists deepen every discovery.",
+    icon: `<path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/>`,
+  },
+  {
+    title: "Refined Comforts",
+    text: "Thoughtful amenities and elevated service at every turn.",
+    icon: `<path d="M12 2l2.4 4.86L20 7.64l-4 3.9.94 5.46L12 14.42 7.06 17l.94-5.46-4-3.9 5.6-.78z"/>`,
+  },
+  {
+    title: "Sustainable by Design",
+    text: "Responsible operations that protect the places we explore.",
+    icon: `<path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>`,
+  },
+];
+
+const gallery = [
+  { src: "/assets/tideborne/ships/lounge-gallery.jpg", caption: "Observation Lounge" },
+  { src: "/assets/tideborne/ships/dining-gallery.jpg", caption: "Signature Dining" },
+  { src: "/assets/tideborne/ships/suite-gallery.jpg", caption: "Veranda Suites" },
+  { src: "/assets/tideborne/ships/deck-pool-gallery.jpg", caption: "Deck & Pool" },
+];
+---
+
+<BaseLayout
+  title="Our Ships | Tideborne Voyages"
+  description="Purpose-built expedition ships that blend refined comfort with the capability to reach the world's most extraordinary places. Meet the Tideborne fleet."
+>
+  <main id="main">
+    <HeroSection
+      image="/assets/tideborne/backgrounds/ships-hero-ship-exterior.jpg"
+      eyebrow="Built for Discovery. Designed for Comfort."
+      lead="Purpose-built expedition ships that blend refined comfort with the capability to reach the world's most extraordinary places."
+      short
+      waveColor="cream-2"
+    >
+      Our Ships.<br /><em>Intimate by Design. Limitless in Spirit.</em>
+      <Fragment slot="actions">
+        <a class="btn btn-gold" href="#fleet">
+          Explore Our Fleet <span class="btn-arrow" aria-hidden="true">→</span>
+        </a>
+      </Fragment>
+    </HeroSection>
+
+    <!-- Flagship feature -->
+    <section class="section section-cream-2 on-cream" style="padding-top:2rem" aria-labelledby="flagship-heading">
+      <div class="container">
+        <div class="grid-2" style="align-items:start;gap:3rem">
+          <div class="reveal">
+            <p class="eyebrow">Flagship</p>
+            <h2 class="serif-title title-lg" id="flagship-heading">
+              Tideborne Explorer<br /><em>Where Capability Meets Elegance.</em>
+            </h2>
+            <p class="lead">
+              Our flagship is a masterclass in expedition travel — combining ice-strengthened
+              performance with refined spaces and unrivalled panoramic views.
+            </p>
+            <div class="stat-grid" style="margin-bottom:1.75rem">
+              {
+                flagshipStats.map((s) => (
+                  <div class="stat-cell">
+                    <span class="stat-label">{s.label}</span>
+                    <span class="stat-value">{s.value}</span>
+                  </div>
+                ))
+              }
+            </div>
+            <div style="display:flex;gap:0.9rem;flex-wrap:wrap">
+              <a class="btn btn-gold" href="/contact">Explore This Ship</a>
+              <a class="btn btn-ghost-dark" href="/contact">View Deck Plans</a>
+            </div>
+          </div>
+          <div class="rounded-media reveal reveal-delay-1" style="align-self:stretch">
+            <img
+              src="/assets/tideborne/ships/flagship-observation-lounge.jpg"
+              alt="The panoramic observation lounge aboard the Tideborne Explorer"
+              loading="lazy"
+              width="900"
+              height="640"
+              style="height:100%"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <CurvedDivider from="cream-2" to="navy" flip />
+
+    <!-- Fleet cards -->
+    <section class="section section-navy topographic-bg on-dark" id="fleet" aria-labelledby="fleet-heading">
+      <div class="container">
+        <div class="section-intro-grid">
+          <div class="reveal">
+            <p class="eyebrow">Our Expedition Fleet</p>
+            <h2 class="serif-title title-lg" id="fleet-heading">
+              Small Ships.<br /><em>Big Experiences.</em>
+            </h2>
+          </div>
+          <p class="lead reveal reveal-delay-1" style="max-width:34rem;align-self:end">
+            With fewer than 150 guests on board, our ships deliver intimate, immersive experiences in
+            remote destinations where larger vessels can't go.
+          </p>
+        </div>
+        <div class="grid-3 reveal">
+          {fleet.map((ship) => <ShipCard ship={ship} />)}
+        </div>
+      </div>
+    </section>
+
+    <CurvedDivider from="navy" to="cream" />
+
+    <!-- Amenities -->
+    <section class="section section-cream on-cream" style="padding-top:3.5rem" aria-labelledby="amenities-heading">
+      <div class="container">
+        <p class="eyebrow reveal">Designed for Exploration. Crafted for You.</p>
+        <h2 class="sr-only" id="amenities-heading">Onboard amenities</h2>
+        <div class="feature-icon-row reveal" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin-bottom:3rem">
+          {
+            amenities.map((a) => (
+              <div class="feature-icon align-left">
+                <span class="feature-icon-circle">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={a.icon} />
+                </span>
+                <h3 class="feature-icon-title">{a.title}</h3>
+                <p class="feature-icon-text">{a.text}</p>
+              </div>
+            ))
+          }
+        </div>
+
+        <!-- Gallery -->
+        <div class="gallery-strip reveal">
+          {
+            gallery.map((g) => (
+              <figure class="gallery-item" style="margin:0">
+                <img src={g.src} alt={`${g.caption} aboard a Tideborne expedition ship`} loading="lazy" width="640" height="464" />
+                <figcaption>{g.caption}</figcaption>
+              </figure>
+            ))
+          }
+        </div>
+        <div style="display:flex;justify-content:center;margin-top:2.5rem" class="reveal">
+          <a class="btn btn-ghost-dark" href="/experience">
+            View All Amenities <span class="btn-arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <CurvedDivider from="cream" to="navy-deep" flip />
+    <TrustStrip />
+  </main>
+</BaseLayout>

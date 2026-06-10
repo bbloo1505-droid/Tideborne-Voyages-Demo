@@ -1,0 +1,28 @@
+---
+import type { Ship } from "../data/site.ts";
+
+interface Props {
+  ship: Ship;
+}
+
+const { ship } = Astro.props;
+---
+
+<article class="ship-card">
+  <div class="ship-card-media">
+    <img
+      src={ship.image}
+      alt={`${ship.name} expedition ship at sea`}
+      loading="lazy"
+      width="640"
+      height="384"
+    />
+  </div>
+  <div class="ship-card-body">
+    <h3 class="ship-card-title">{ship.name}</h3>
+    <p class="ship-card-tagline">{ship.tagline} · Up to {ship.guests} guests</p>
+    <a class="text-link" href="/contact" aria-label={`Explore the ${ship.name}`}>
+      Explore This Ship <span class="btn-arrow" aria-hidden="true">→</span>
+    </a>
+  </div>
+</article>

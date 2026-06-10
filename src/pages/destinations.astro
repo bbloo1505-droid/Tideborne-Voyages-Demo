@@ -1,0 +1,157 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import HeroSection from "../components/HeroSection.astro";
+import CurvedDivider from "../components/CurvedDivider.astro";
+import TrustStrip from "../components/TrustStrip.astro";
+import DestinationCard from "../components/DestinationCard.astro";
+import { destinations } from "../data/site.ts";
+
+const filterTabs = [
+  { id: "all", label: "All Destinations" },
+  { id: "polar", label: "Polar" },
+  { id: "islands", label: "Islands" },
+  { id: "fjords", label: "Fjords" },
+  { id: "wildlife", label: "Wildlife" },
+];
+---
+
+<BaseLayout
+  title="Destinations | Tideborne Voyages"
+  description="From remote polar frontiers to volcanic islands teeming with life — explore Antarctica, Iceland, the Galápagos, Norway, and Arctic Svalbard with Tideborne Voyages."
+>
+  <main id="main">
+    <HeroSection
+      image="/assets/tideborne/backgrounds/destinations-hero-zodiac-antarctica.jpg"
+      eyebrow="Extraordinary Places. Meaningful Journeys."
+      lead="From remote polar frontiers to volcanic islands teeming with life, our expertly curated voyages reveal the planet at its most powerful, pristine, and profoundly moving."
+      short
+    >
+      Destinations That<br /><em>Stay With You.</em>
+    </HeroSection>
+
+    <!-- Intro + feature icons -->
+    <section class="section section-cream on-cream" style="padding-top:2.5rem" aria-labelledby="destinations-intro">
+      <div class="container">
+        <div class="section-intro-grid" style="align-items:start">
+          <div class="reveal">
+            <p class="eyebrow">Handpicked for Explorers</p>
+            <h2 class="serif-title title-lg" id="destinations-intro">
+              Remote Places. <em>Rare Moments.</em>
+            </h2>
+            <p class="lead">
+              Each destination offers a unique perspective on our world — shaped by nature, rich in
+              wildlife, and best experienced with expert guides by your side.
+            </p>
+          </div>
+          <div class="feature-icon-row reveal reveal-delay-1" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr))">
+            <div class="feature-icon align-left">
+              <span class="feature-icon-circle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              </span>
+              <h3 class="feature-icon-title">Best Time to Travel</h3>
+              <p class="feature-icon-text">We recommend when to go for ideal conditions.</p>
+            </div>
+            <div class="feature-icon align-left">
+              <span class="feature-icon-circle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 21c1.5 1 3.5 1 5 0s3.5-1 5 0 3.5 1 5 0 3.5-1 5 0"/><path d="M4 18l2-11h12l2 11"/><path d="M9 7V4h6v3"/></svg>
+              </span>
+              <h3 class="feature-icon-title">Expedition Style</h3>
+              <p class="feature-icon-text">Zodiac excursions, expert lectures, and immersive onshore experiences.</p>
+            </div>
+            <div class="feature-icon align-left">
+              <span class="feature-icon-circle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c-1.2 2.5-4 3.5-6 3 0 6 2 12 6 15 4-3 6-9 6-15-2 .5-4.8-.5-6-3z"/><circle cx="12" cy="11" r="2"/></svg>
+              </span>
+              <h3 class="feature-icon-title">Wildlife Highlights</h3>
+              <p class="feature-icon-text">From polar bears to penguins — encounters you'll never forget.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Filter tabs -->
+        <div class="filter-tabs reveal" role="group" aria-label="Filter destinations" style="margin-bottom:2rem">
+          {
+            filterTabs.map((tab, i) => (
+              <button
+                class:list={["filter-tab", { "is-active": i === 0 }]}
+                type="button"
+                data-destination-filter={tab.id}
+                aria-pressed={i === 0 ? "true" : "false"}
+              >
+                {tab.label}
+              </button>
+            ))
+          }
+        </div>
+
+        <!-- Destination cards -->
+        <div class="destination-grid reveal" id="destination-grid">
+          {destinations.map((d) => <DestinationCard destination={d} detailed />)}
+        </div>
+        <p class="no-results" id="destination-empty" hidden>
+          No destinations match that filter just yet — try another category.
+        </p>
+      </div>
+    </section>
+
+    <CurvedDivider from="cream" to="navy" flip />
+
+    <!-- Expert CTA -->
+    <section class="section section-navy on-dark" style="padding:3.5rem 0">
+      <div class="container expert-cta reveal">
+        <img class="compass-accent" src="/assets/tideborne/decor/gold-compass-small.svg" alt="" width="46" height="46" />
+        <div>
+          <h2 class="serif-title title-md on-dark" style="margin-bottom:0.3rem">Not sure where to go?</h2>
+          <p style="margin:0;color:rgba(244,239,228,0.7)">
+            Our expedition specialists can help you choose the perfect journey.
+          </p>
+        </div>
+        <a class="btn btn-gold" href="/contact">
+          Contact an Expert <span class="btn-arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </section>
+
+    <TrustStrip />
+  </main>
+</BaseLayout>
+
+<style>
+  .destination-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));
+    gap: 1.4rem;
+  }
+  .no-results {
+    margin: 2rem 0 0;
+    font-size: 0.95rem;
+    color: rgba(4, 30, 45, 0.6);
+  }
+  .expert-cta {
+    display: flex; align-items: center; gap: 1.75rem; flex-wrap: wrap;
+  }
+  .expert-cta > div { flex: 1 1 320px; }
+</style>
+
+<script>
+  const tabs = Array.from(document.querySelectorAll<HTMLButtonElement>("[data-destination-filter]"));
+  const cards = Array.from(document.querySelectorAll<HTMLElement>("#destination-grid .destination-card"));
+  const empty = document.getElementById("destination-empty");
+
+  tabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      const filter = tab.dataset.destinationFilter || "all";
+      tabs.forEach((t) => {
+        t.classList.toggle("is-active", t === tab);
+        t.setAttribute("aria-pressed", t === tab ? "true" : "false");
+      });
+      let visible = 0;
+      cards.forEach((card) => {
+        const matches = filter === "all" || (card.dataset.filters || "").split(" ").includes(filter);
+        card.style.display = matches ? "" : "none";
+        if (matches) visible++;
+      });
+      if (empty) empty.hidden = visible > 0;
+    });
+  });
+</script>

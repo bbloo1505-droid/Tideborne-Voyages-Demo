@@ -1,0 +1,24 @@
+/* Reusable curves + motion for Tideborne-style build */
+.tide-section { position: relative; overflow: hidden; }
+.tide-wave-cream-top::before {
+  content: ''; position: absolute; left: -5%; right: -5%; top: -86px; height: 150px;
+  background: var(--tide-cream); border-radius: 50% 50% 0 0 / 100% 100% 0 0; z-index: 2;
+}
+.tide-wave-cream-bottom::after {
+  content: ''; position: absolute; left: -5%; right: -5%; bottom: -86px; height: 150px;
+  background: var(--tide-cream); border-radius: 50% 50% 0 0 / 100% 100% 0 0; z-index: 2; transform: rotate(180deg);
+}
+.tide-wave-navy-top::before {
+  content: ''; position: absolute; left: -5%; right: -5%; top: -84px; height: 145px;
+  background: var(--tide-navy-900); border-radius: 50% 50% 0 0 / 100% 100% 0 0; z-index: 2;
+}
+.tide-curved-panel { border-radius: 30px; overflow:hidden; box-shadow: var(--tide-shadow); }
+.tide-card { transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease; }
+.tide-card:hover { transform: translateY(-7px); box-shadow: 0 26px 60px rgba(0,0,0,.28); border-color: var(--tide-gold); }
+.tide-fade-up { opacity: 0; transform: translateY(24px); animation: tideFadeUp .8s ease forwards; }
+.tide-delay-1 { animation-delay: .12s; } .tide-delay-2 { animation-delay: .24s; } .tide-delay-3 { animation-delay: .36s; }
+@keyframes tideFadeUp { to { opacity: 1; transform: translateY(0); } }
+.tide-parallax-bg { background-attachment: fixed; background-size: cover; background-position: center; }
+@media (max-width: 900px) { .tide-parallax-bg { background-attachment: scroll; } }
+.tide-gold-button { background: linear-gradient(135deg, #C99A48, #E2BF74); color: #061D2C; }
+.tide-glass { background: rgba(4, 30, 45, .72); backdrop-filter: blur(12px); border: 1px solid rgba(201,154,72,.32); }

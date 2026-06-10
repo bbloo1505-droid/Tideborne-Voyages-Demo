@@ -1,0 +1,113 @@
+---
+import { brand } from "../data/site.ts";
+---
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <img
+          class="footer-logo"
+          src={brand.logos.light}
+          alt={brand.siteName}
+          width="420"
+          height="96"
+        />
+        <p class="footer-brand-text">
+          Boutique expedition cruises to the world's most remote destinations —
+          led by experts, inspired by nature.
+        </p>
+        <div class="footer-social">
+          <a href="#" aria-label="Tideborne Voyages on Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="#" aria-label="Tideborne Voyages on Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="#" aria-label="Tideborne Voyages on YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-2C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 2A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 2C5.12 20 12 20 12 20s6.88 0 8.59-.42a2.78 2.78 0 0 0 1.95-2A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58zM9.75 15.02V8.98L15.5 12l-5.75 3.02z"/></svg>
+          </a>
+        </div>
+      </div>
+      <nav aria-label="Explore">
+        <h2 class="footer-heading">Explore</h2>
+        <ul class="footer-nav">
+          <li><a href="/destinations">Destinations</a></li>
+          <li><a href="/expedition-cruises">Expedition Cruises</a></li>
+          <li><a href="/our-ships">Our Ships</a></li>
+          <li><a href="/experience">Experience</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="About">
+        <h2 class="footer-heading">About</h2>
+        <ul class="footer-nav">
+          <li><a href="/about">Our Story</a></li>
+          <li><a href="/about#sustainability">Sustainability</a></li>
+          <li><a href="/about#guides">Expedition Team</a></li>
+          <li><a href="/contact">Careers</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Guest resources">
+        <h2 class="footer-heading">Guest Resources</h2>
+        <ul class="footer-nav">
+          <li><a href="/contact">Travel Information</a></li>
+          <li><a href="/contact">FAQ</a></li>
+          <li><a href="/contact">Health &amp; Safety</a></li>
+          <li><a href="/contact">Guest Portal</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h2 class="footer-heading">Stay Inspired</h2>
+        <div class="footer-contact">
+          <p><a href={brand.phoneHref}>{brand.phone}</a></p>
+          <p><a href={`mailto:${brand.contactEmail}`}>{brand.contactEmail}</a></p>
+        </div>
+        <form class="newsletter-form" id="newsletter-form" novalidate>
+          <label class="sr-only" for="newsletter-email">Email address</label>
+          <input
+            type="email"
+            id="newsletter-email"
+            name="email"
+            placeholder="Enter your email"
+            autocomplete="email"
+            required
+          />
+          <button type="submit" aria-label="Subscribe to newsletter">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
+        </form>
+        <p class="newsletter-note" id="newsletter-note">
+          Exclusive offers, travel inspiration, and stories from around the world.
+        </p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p style="margin:0">© <span id="year"></span> {brand.legalName}. All rights reserved.</p>
+      <ul class="footer-legal">
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms &amp; Conditions</a></li>
+        <li><a href="#">Site Map</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script is:inline>
+  (function () {
+    var form = document.getElementById("newsletter-form");
+    var note = document.getElementById("newsletter-note");
+    if (!form || !note) return;
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var input = form.querySelector("input");
+      if (!input || !input.value || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value)) {
+        note.textContent = "Please enter a valid email address.";
+        note.style.color = "#d99d8a";
+        return;
+      }
+      note.textContent = "Thank you — you're on the list. Watch your inbox for voyage inspiration.";
+      note.style.color = "#9fc3b8";
+      input.value = "";
+    });
+  })();
+</script>

@@ -1,0 +1,229 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import HeroSection from "../components/HeroSection.astro";
+import CurvedDivider from "../components/CurvedDivider.astro";
+import CTASection from "../components/CTASection.astro";
+import TrustStrip from "../components/TrustStrip.astro";
+
+const onboard = [
+  {
+    title: "World-Class Dining",
+    text: "Regionally inspired menus crafted from fresh, responsibly sourced ingredients — served with polar views.",
+    icon: `<path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/>`,
+  },
+  {
+    title: "Observation Lounges",
+    text: "Floor-to-ceiling glass, quiet corners, and open decks designed for whale spotting and midnight sun.",
+    icon: `<circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/>`,
+  },
+  {
+    title: "Wellness & Spa",
+    text: "Saunas with a view, treatment rooms, and wellness rituals to restore you between landings.",
+    icon: `<path d="M12 22c4.97 0 9-4.03 9-9-4.97 0-9 4.03-9 9zM12 22c-4.97 0-9-4.03-9-9 4.97 0 9 4.03 9 9zM12 13V2"/><path d="M12 13c0-3 2-5.5 5-6.5M12 13c0-3-2-5.5-5-6.5"/>`,
+  },
+  {
+    title: "Lectures & Guides",
+    text: "Daily briefings and talks from marine biologists, glaciologists, historians, and photographers.",
+    icon: `<path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/>`,
+  },
+];
+
+const expedition = [
+  {
+    title: "Zodiac Excursions",
+    text: "Twice-daily Zodiac outings bring you eye-level with icebergs, sea cliffs, and hidden coves.",
+    icon: `<path d="M2 21c1.5 1 3.5 1 5 0s3.5-1 5 0 3.5 1 5 0 3.5-1 5 0"/><path d="M4 18l2-11h12l2 11"/><path d="M9 7V4h6v3"/>`,
+  },
+  {
+    title: "Wildlife Encounters",
+    text: "Penguin rookeries, breaching whales, walrus haul-outs — guided with care and respect.",
+    icon: `<path d="M12 3c-1.2 2.5-4 3.5-6 3 0 6 2 12 6 15 4-3 6-9 6-15-2 .5-4.8-.5-6-3z"/><circle cx="12" cy="11" r="2"/>`,
+  },
+  {
+    title: "Photography Moments",
+    text: "Dedicated photo guides help you frame the light, the landscape, and the moment.",
+    icon: `<path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/>`,
+  },
+  {
+    title: "Cultural Experiences",
+    text: "Meet local communities, visit remote settlements, and hear stories told by the people who live them.",
+    icon: `<circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>`,
+  },
+];
+
+const timeline = [
+  {
+    title: "Choose Your Expedition",
+    text: "Browse our curated voyages or tell us where you've always dreamed of going.",
+  },
+  {
+    title: "Plan With a Specialist",
+    text: "A dedicated Voyage Specialist tailors every detail — cabins, excursions, and beyond.",
+  },
+  {
+    title: "Travel Deeper",
+    text: "Small ships, expert guides, and unhurried days immersed in the world's wildest places.",
+  },
+  {
+    title: "Return Changed",
+    text: "Come home with stories, friendships, and a deeper connection to the planet.",
+  },
+];
+---
+
+<BaseLayout
+  title="The Experience | Tideborne Voyages"
+  description="Small ships, big experiences. Discover life on board a Tideborne expedition — world-class dining, observation lounges, Zodiac excursions, and expert-led discovery."
+>
+  <main id="main">
+    <HeroSection
+      image="/assets/tideborne/ships/flagship-observation-lounge.jpg"
+      eyebrow="The Tideborne Experience"
+      lead="Every detail is designed to bring you closer to the places, people, wildlife, and stories that make each journey unforgettable."
+      short
+    >
+      Small Ships.<br /><em>Big Experiences.</em>
+      <Fragment slot="actions">
+        <a class="btn btn-gold" href="/expedition-cruises">
+          Find Your Voyage <span class="btn-arrow" aria-hidden="true">→</span>
+        </a>
+      </Fragment>
+    </HeroSection>
+
+    <!-- Onboard experience -->
+    <section class="section section-cream on-cream" style="padding-top:2.5rem" aria-labelledby="onboard-heading">
+      <div class="container">
+        <div class="section-intro-grid" style="align-items:start">
+          <div class="reveal">
+            <p class="eyebrow">Life On Board</p>
+            <h2 class="serif-title title-lg" id="onboard-heading">
+              Refined Comfort.<br /><em>Endless Horizons.</em>
+            </h2>
+            <p class="lead">
+              Our ships are sanctuaries of calm between adventures — intimate, elegant, and designed
+              around the landscapes outside every window.
+            </p>
+            <a class="text-link on-cream-link" href="/our-ships">
+              Meet Our Ships <span class="btn-arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
+          <div class="feature-icon-row reveal reveal-delay-1" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">
+            {
+              onboard.map((item) => (
+                <div class="feature-icon align-left">
+                  <span class="feature-icon-circle">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={item.icon} />
+                  </span>
+                  <h3 class="feature-icon-title">{item.title}</h3>
+                  <p class="feature-icon-text">{item.text}</p>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <CurvedDivider from="cream" to="navy" flip />
+
+    <!-- Expedition experience -->
+    <section class="section section-navy topographic-bg on-dark" aria-labelledby="expedition-heading">
+      <div class="container">
+        <div class="section-intro-grid" style="align-items:start">
+          <div class="reveal">
+            <p class="eyebrow">Beyond the Ship</p>
+            <h2 class="serif-title title-lg" id="expedition-heading">
+              The Expedition.<br /><em>Where the Wild Begins.</em>
+            </h2>
+            <p class="lead">
+              Each day is shaped by ice, weather, and wildlife — guided by experts who know exactly
+              where to look and when to linger.
+            </p>
+            <a class="text-link" href="/destinations">
+              Explore Destinations <span class="btn-arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
+          <div class="feature-icon-row reveal reveal-delay-1" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">
+            {
+              expedition.map((item) => (
+                <div class="feature-icon align-left">
+                  <span class="feature-icon-circle">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={item.icon} />
+                  </span>
+                  <h3 class="feature-icon-title">{item.title}</h3>
+                  <p class="feature-icon-text">{item.text}</p>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+        <div class="rounded-media reveal" style="margin-top:2.5rem">
+          <img
+            src="/assets/tideborne/about/zodiac-whale-glacier.jpg"
+            alt="Expedition guests in a Zodiac alongside a whale near a glacier wall"
+            loading="lazy"
+            width="1200"
+            height="540"
+            style="max-height:440px;width:100%"
+          />
+        </div>
+      </div>
+    </section>
+
+    <CurvedDivider from="navy" to="cream-2" />
+
+    <!-- Timeline -->
+    <section class="section section-cream-2 on-cream" style="padding-top:3.5rem" aria-labelledby="journey-heading">
+      <div class="container">
+        <div style="text-align:center;max-width:38rem;margin:0 auto 3rem" class="reveal">
+          <p class="eyebrow">How It Works</p>
+          <h2 class="serif-title title-lg" id="journey-heading">
+            Your Journey, <em>Step by Step.</em>
+          </h2>
+        </div>
+        <div class="timeline reveal">
+          {
+            timeline.map((step, i) => (
+              <div class="timeline-step">
+                <span class="timeline-num">0{i + 1}</span>
+                <h3>{step.title}</h3>
+                <p>{step.text}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonial strip -->
+    <section class="section section-cream on-cream" style="padding:4rem 0" aria-label="Guest testimonial">
+      <div class="container" style="max-width:46rem;text-align:center">
+        <div class="reveal">
+          <img class="compass-accent" src="/assets/tideborne/decor/gold-compass-small.svg" alt="" width="46" height="46" style="margin:0 auto 1.25rem" />
+          <blockquote style="margin:0">
+            <p class="serif-title title-md" style="font-style:italic;font-weight:400;color:var(--tide-navy-900);line-height:1.5">
+              “The guides didn't just show us Antarctica — they helped us understand it.
+              It was the most meaningful trip of our lives.”
+            </p>
+            <footer style="margin-top:1.25rem;font-size:0.84rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(4,30,45,0.6)">
+              Sarah & James W. — Antarctica Explorer, 2024
+            </footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <CTASection
+      image="/assets/tideborne/backgrounds/footer-whale-ocean.jpg"
+      title="Experience It for Yourself."
+      text="Speak with a Voyage Specialist and start planning your expedition."
+    >
+      <Fragment slot="actions">
+        <a class="btn btn-gold" href="/contact">Request a Brochure</a>
+        <a class="btn btn-ghost-light" href="/expedition-cruises">Browse Voyages</a>
+      </Fragment>
+    </CTASection>
+
+    <TrustStrip />
+  </main>
+</BaseLayout>
